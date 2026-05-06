@@ -1,0 +1,74 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF6EA325-F08B-4E51-897F-EA5B2ADC6BDF}|Ejemplo\\Ejemplo.csproj|c:\\users\\estudiantes\\source\\repos\\ejemplo\\ejemplo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF6EA325-F08B-4E51-897F-EA5B2ADC6BDF}|Ejemplo\\Ejemplo.csproj|solutionrelative:ejemplo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF6EA325-F08B-4E51-897F-EA5B2ADC6BDF}|Ejemplo\\Ejemplo.csproj|c:\\users\\estudiantes\\source\\repos\\ejemplo\\ejemplo\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF6EA325-F08B-4E51-897F-EA5B2ADC6BDF}|Ejemplo\\Ejemplo.csproj|solutionrelative:ejemplo\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF6EA325-F08B-4E51-897F-EA5B2ADC6BDF}|Ejemplo\\Ejemplo.csproj|c:\\users\\estudiantes\\source\\repos\\ejemplo\\ejemplo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DF6EA325-F08B-4E51-897F-EA5B2ADC6BDF}|Ejemplo\\Ejemplo.csproj|solutionrelative:ejemplo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\Ejemplo\\Models\\Empleado.cs",
+              "RelativeDocumentMoniker": "Ejemplo\\Models\\Empleado.cs",
+              "ToolTip": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\Ejemplo\\Models\\Empleado.cs",
+              "RelativeToolTip": "Ejemplo\\Models\\Empleado.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:25:36.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\Ejemplo\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Ejemplo\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\Ejemplo\\MainWindow.xaml",
+              "RelativeToolTip": "Ejemplo\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T01:13:58.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\Ejemplo\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Ejemplo\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Estudiantes\\source\\repos\\Ejemplo\\Ejemplo\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Ejemplo\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:13:55.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
