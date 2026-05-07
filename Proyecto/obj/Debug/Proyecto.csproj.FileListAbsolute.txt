@@ -1,0 +1,5 @@
+C:\Uni\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.AssemblyReference.cache
+C:\Uni\GyalShop\Proyecto\obj\Debug\MainWindow.g.cs
+C:\Uni\GyalShop\Proyecto\obj\Debug\App.g.cs
+C:\Uni\GyalShop\Proyecto\obj\Debug\Proyecto_MarkupCompile.cache
+C:\Uni\GyalShop\Proyecto\obj\Debug\Proyecto_MarkupCompile.lref
