@@ -3,20 +3,12 @@
     public class Usuario
     {
         public int IdUsuario { get; set; }
-<<<<<<< HEAD
-        public TipoUsuario TipoUsuario { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Correo { get; set; }
-        public string Password { get; set; }
-        public int Telefono { get; set; }
-=======
         public TipoUsuario TipoUsuario { get; set; } = new TipoUsuario();
 
         public string NombreUsuario { get; set; }
         public string Correo { get; set; }
         public string Password { get; set; }
         public string Telefono { get; set; }
->>>>>>> 94c41ecde51a039218e136657285373c6591bb10
         public string Direccion { get; set; }
         public bool EstaActivo { get; set; }
 
@@ -32,21 +24,10 @@
             TipoUsuario = tipoUsuario ?? new TipoUsuario();
             NombreUsuario = nombreUsuario;
             Correo = correo;
-<<<<<<< HEAD
-            Password = passwrod;
-=======
             Password = password;
->>>>>>> 94c41ecde51a039218e136657285373c6591bb10
             Telefono = telefono;
             Direccion = direccion;
             EstaActivo = estaActivo;
         }
-<<<<<<< HEAD
-        public Usuario()
-        {
-
-        }
-=======
->>>>>>> 94c41ecde51a039218e136657285373c6591bb10
     }
 }

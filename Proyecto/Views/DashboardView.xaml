@@ -28,6 +28,10 @@
                 <Button Content="Usuarios"
                         Style="{StaticResource MenuButton}"
                         Click="BtnUsers_Click"/>
+                
+                <Button Content="Categorias"
+        Style="{StaticResource MenuButton}"
+        Click="BtnCategorias_Click"/>
 
                 <Button Content="Productos"
                         Style="{StaticResource MenuButton}"

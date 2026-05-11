@@ -4,30 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\
-=======
-C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\
->>>>>>> 94c41ecde51a039218e136657285373c6591bb10
 Proyecto
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\App.xaml
-1219584333
+8556849285
 
-29-484010276
-24-290044537
-MainWindow.xaml;
-=======
-C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\App.xaml
-61283626486
-
-29-1246667732
-36-2055527049
-Views\HomeView.xaml;Views\Login.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
->>>>>>> 94c41ecde51a039218e136657285373c6591bb10
+341694310016
+361290423599
+Views\CategoriaView.xaml;Views\HomeView.xaml;Views\Login.xaml;Views\ProductoView.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
 
 False
 

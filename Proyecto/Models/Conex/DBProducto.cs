@@ -9,7 +9,7 @@ namespace Proyecto.Models.Conex
 {
     public class DBProducto
     {
-        string stringConex = "server=localhost; user=Backend; database=backend; password=123456; port=3306;";
+        string stringConex = "server=localhost; user=root; database=gyalshop; password=; port=3306;";
 
         public bool setProducto(Producto producto)
         {
@@ -25,7 +25,7 @@ namespace Proyecto.Models.Conex
                     command.Parameters.AddWithValue("@cantidadProducto", producto.CantidadProducto);
                     command.Parameters.AddWithValue("@precioProducto", producto.PrecioProducto);
                     command.Parameters.AddWithValue("@descuentoProducto", producto.DescuentoProducto);
-                    command.Parameters.AddWithValue("@estadoProducto", producto.EstaActivo);
+                    command.Parameters.AddWithValue("@estadoProducto", true);
 
                     mySqlConnection.Open();
                     int result = command.ExecuteNonQuery();
@@ -40,17 +40,19 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public Producto getProducto(int idProducto)
+        public Producto getProducto(Producto producto)
         {
 
-            Producto producto = new Producto();
+            Producto resProducto = new Producto();
 
-            string query = "select * from productos where idProducto = " + idProducto;
+            string query = "select * from productos where idProducto = @idProducto";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
+                    command.Parameters.AddWithValue("@idProducto", producto.IdProducto);
+
                     mySqlConnection.Open();
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -58,35 +60,36 @@ namespace Proyecto.Models.Conex
 
                         while (reader.Read())
                         {
-                            producto.IdProducto = reader.GetInt32("idProducto");
+                            resProducto.IdProducto = reader.GetInt32("idProducto");
 
-                            producto.IdCategoriaProducto = new Categoria();
-                            producto.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
+                            resProducto.IdCategoriaProducto = new Categoria();
+                            resProducto.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
 
-                            producto.NombreProducto = reader.GetString("nombreProducto");
-                            producto.CantidadProducto = reader.GetInt32("cantidadProducto");
-                            producto.PrecioProducto = reader.GetDouble("precioProducto");
-                            producto.DescuentoProducto = reader.GetInt32("descuentoProducto");
-                            producto.EstaActivo = reader.GetBoolean("estadoProducto");
+                            resProducto.NombreProducto = reader.GetString("nombreProducto");
+                            resProducto.CantidadProducto = reader.GetInt32("cantidadProducto");
+                            resProducto.PrecioProducto = reader.GetDouble("precioProducto");
+                            resProducto.DescuentoProducto = reader.GetInt32("descuentoProducto");
+                            resProducto.EstaActivo = reader.GetBoolean("estadoProducto");
                         }
                     }
                 }
             }
 
-            return producto;
+            return resProducto;
         }
 
-        public List<Producto> getProductos()
+        public List<Producto> getProductos(Producto producto)
         {
 
-            List<Producto> productos = new List<Producto>();
+            List<Producto> resProductos = new List<Producto>();
 
-            string query = "select * from productos";
+            string query = "select * from productos where idProducto = @idProdcuto";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
+                    command.Parameters.AddWithValue("@idProducto", producto.IdProducto);
                     mySqlConnection.Open();
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -94,27 +97,69 @@ namespace Proyecto.Models.Conex
 
                         while (reader.Read())
                         {
-                            Producto producto = new Producto();
+                            Producto productos = new Producto();
 
-                            producto.IdProducto = reader.GetInt32("idProducto");
+                            productos.IdProducto = reader.GetInt32("idProducto");
 
-                            producto.IdCategoriaProducto = new Categoria();
-                            producto.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
+                            productos.IdCategoriaProducto = new Categoria();
+                            productos.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
 
-                            producto.NombreProducto = reader.GetString("nombreProducto");
-                            producto.CantidadProducto = reader.GetInt32("cantidadProducto");
-                            producto.PrecioProducto = reader.GetDouble("precioProducto");
-                            producto.DescuentoProducto = reader.GetInt32("descuentoProducto");
-                            producto.EstaActivo = reader.GetBoolean("estadoProducto");
+                            productos.NombreProducto = reader.GetString("nombreProducto");
+                            productos.CantidadProducto = reader.GetInt32("cantidadProducto");
+                            productos.PrecioProducto = reader.GetDouble("precioProducto");
+                            productos.DescuentoProducto = reader.GetInt32("descuentoProducto");
+                            productos.EstaActivo = reader.GetBoolean("estadoProducto");
 
-                            productos.Add(producto);
+                            resProductos.Add(productos);
                         }
                     }
 
                 }
             }
 
-            return productos;
+            return resProductos;
+        }
+        public List<Producto> getAllProductos()
+        {
+
+            List<Producto> resProductos = new List<Producto>();
+
+            string query = "select * from productos where estadoProducto= @estadoProducto";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                {
+                    command.Parameters.AddWithValue("@estadoProducto", true);
+
+                    mySqlConnection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            Producto productos = new Producto();
+
+                            productos.IdProducto = reader.GetInt32("idProducto");
+
+                            productos.IdCategoriaProducto = new Categoria();
+                            productos.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
+
+                            productos.NombreProducto = reader.GetString("nombreProducto");
+                            productos.CantidadProducto = reader.GetInt32("cantidadProducto");
+                            productos.PrecioProducto = reader.GetDouble("precioProducto");
+                            productos.DescuentoProducto = reader.GetInt32("descuentoProducto");
+                            productos.EstaActivo = reader.GetBoolean("estadoProducto");
+
+                            resProductos.Add(productos);
+                        }
+                    }
+
+                }
+            }
+
+            return resProductos;
         }
 
         public bool updateProducto(Producto producto)
@@ -149,16 +194,17 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public bool cambiarEstadoProducto(Producto producto)
+        public bool deleteProducto(Producto producto)
         {
 
-            string query = "Update productos set estadoProducto = NOT estadoProducto where idProducto = @idProducto";
+            string query = "Update productos set estadoProducto = @estadoProducto where idProducto = @idProducto";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
                     command.Parameters.AddWithValue("@idProducto", producto.IdProducto);
+                    command.Parameters.AddWithValue("@estadoProducto", false);
 
                     mySqlConnection.Open();
 

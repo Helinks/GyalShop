@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Proyecto.Models.Conex;
+using Proyecto.Models;
 
 namespace Proyecto.Services
 {
-    internal class PedidoService
+    public class PedidoService
     {
+        
     }
 }

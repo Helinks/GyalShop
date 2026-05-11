@@ -1,5 +1,6 @@
 ﻿using Proyecto.Controllers;
 using Proyecto.Models;
+using Proyecto.Models.Conex;
 using System.Windows;
 using System.Windows.Controls;
 

@@ -15,7 +15,7 @@ namespace Proyecto.Views
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
-            //MainContent.Content = new DashboardHome();
+            MainContent.Content = new HomeView();
         }
 
         private void BtnUsers_Click(object sender, RoutedEventArgs e)
@@ -23,9 +23,14 @@ namespace Proyecto.Views
             MainContent.Content = new UsuarioView();
         }
 
+        private void BtnCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new CategoriaView();
+        }
+
         private void BtnProducts_Click(object sender, RoutedEventArgs e)
         {
-            //MainContent.Content = new ProductsView();
+            MainContent.Content = new ProductoView();
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
@@ -34,6 +39,11 @@ namespace Proyecto.Views
 
             MainWindow main = (MainWindow)Window.GetWindow(this);
             main.MainContent.Content = new HomeView();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
