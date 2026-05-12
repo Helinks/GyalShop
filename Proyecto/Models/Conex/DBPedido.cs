@@ -140,7 +140,7 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido);
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido.IdEstado);
                     command.Parameters.AddWithValue("@idPedido", pedido.IdPedido);
 
                     mySqlConnection.Open();

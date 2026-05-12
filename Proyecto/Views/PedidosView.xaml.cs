@@ -127,7 +127,9 @@ namespace Proyecto.Views
                 return;
             }
             selectedPedido.IdEstadoPedido= new Estado { IdEstado= (int)cmEstado.SelectedValue };
+            pedidoController.CambiarEstadoPedido(selectedPedido);
             LimpiarCampos();
+            LimpiarVista();
             BtnsOff();
             CargarDatos();
         }

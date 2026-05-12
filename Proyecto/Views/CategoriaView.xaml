@@ -149,7 +149,6 @@
 			</DockPanel>
 		</Border>
 
-		<!-- FORMULARIO -->
 		<Border Grid.Column="1"
                 Background="White"
                 CornerRadius="18"
