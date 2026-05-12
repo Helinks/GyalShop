@@ -1,98 +1,97 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 namespace Proyecto.Models.Conex
 {
     public class DBCategoria
     {
-        string stringConex = "server=localhost; user=root; database=gyalshop; password=; port=3306;";
-
-        public bool SetCategoria(Categoria categoria) {
-          
-                string queryInsert = "INSERT INTO categorias (nombreCategoria, estadoCategoria) VALUES (@nombreCategoria, @estadoCategoria)";
-
-                using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex)) {
-                    using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection)) {
-                        command.Parameters.AddWithValue("@nombreCategoria", categoria.NombreCategoria);
-                        command.Parameters.AddWithValue("@estadoCategoria", true);
-
-                        mySqlConnection.Open();
-                        int result = command.ExecuteNonQuery();
-
-                        if (result > 0) { 
-                        return true;
-                        }
-                    }
-                }
-           
-            return false;
-        }
-
-        public Categoria GetCategoria(Categoria categoria) {
-           
-                Categoria resCategoria = new Categoria();
-                string query = "select * from categorias where idCategoria = @idCategoria";
-
-                using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
-                {
-                    using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
-                    {
-                    command.Parameters.AddWithValue("@idCategoria",categoria.IdCategoria);
-                        mySqlConnection.Open();
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                        resCategoria.IdCategoria = reader.GetInt32("idCategoria");
-                        resCategoria.NombreCategoria = reader.GetString("nombreCategoria");
-                        resCategoria.EstaActivo = reader.GetBoolean("estadoCategoria");
-                        }
-                    }
-                }
-                return resCategoria;
-        }
+        
+        private readonly string stringConex = "server=localhost; user=root; database=gyalshop; password=; port=3306;";
 
         
-        public List<Categoria> GetCategorias(Categoria categoria)
+        private Categoria LeerCategoria(MySqlDataReader reader)
         {
-           
-                List<Categoria> resCategorias = new List<Categoria>();
-                string query = "select * from categorias where idCategoria = @idCategorias";
+            return new Categoria
+            {
+                IdCategoria = reader.GetInt32("idCategoria"),
+                NombreCategoria = reader.GetString("nombreCategoria"),
+                EstaActivo = reader.GetBoolean("estadoCategoria")
+            };
+        }
 
-                using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+        public bool SetCategoria(Categoria categoria)
+        {
+            string queryInsert = @"INSERT INTO categorias (nombreCategoria, estadoCategoria) 
+                                   VALUES (@nombreCategoria, @estadoCategoria)";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection))
+            {
+                command.Parameters.AddWithValue("@nombreCategoria", categoria.NombreCategoria);
+                command.Parameters.AddWithValue("@estadoCategoria", true);
+
+                mySqlConnection.Open();
+                int result = command.ExecuteNonQuery();
+                return result > 0;
+            }
+        }
+
+        public Categoria GetCategoria(Categoria categoria)
+        {
+            Categoria resCategoria = null;
+            string query = @"SELECT idCategoria, nombreCategoria, estadoCategoria 
+                             FROM categorias 
+                             WHERE idCategoria = @idCategoria";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+            {
+                command.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
+                mySqlConnection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                    if (reader.Read())
                     {
-                    command.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
-
-                    mySqlConnection.Open();
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-
-                            while (reader.Read())
-                            {
-                                Categoria categorias = new Categoria();
-                            categorias.IdCategoria = reader.GetInt32("idCategoria");
-                            categorias.NombreCategoria = reader.GetString("nombreCategoria");
-                            categorias.EstaActivo = reader.GetBoolean("estadoCategoria");
-
-                            resCategorias.Add(categorias);
-                            }
-                        }
-
+                        resCategoria = LeerCategoria(reader);
                     }
                 }
-                return resCategorias;
-   
+            }
+            return resCategoria;
+        }
+
+        public List<Categoria> GetCategorias(Categoria categoria)
+        {
+            List<Categoria> resCategorias = new List<Categoria>();
+            string query = @"SELECT idCategoria, nombreCategoria, estadoCategoria 
+                             FROM categorias 
+                             WHERE idCategoria = @idCategoria";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+            {
+                command.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
+                mySqlConnection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        resCategorias.Add(LeerCategoria(reader));
+                    }
+                }
+            }
+            return resCategorias;
         }
 
         public List<Categoria> GetAllCategoria()
         {
             List<Categoria> listaCategoria = new List<Categoria>();
-
-            string query = "select * from categorias where estadoCategoria = @estadoCategoria";
+            string query = @"SELECT idCategoria, nombreCategoria, estadoCategoria 
+                             FROM categorias 
+                             WHERE estadoCategoria = @estadoCategoria 
+                             ORDER BY idCategoria DESC";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
@@ -104,57 +103,77 @@ namespace Proyecto.Models.Conex
                 {
                     while (reader.Read())
                     {
-                        Categoria categoria = new Categoria();
-
-                        categoria.IdCategoria = reader.GetInt32("idCategoria");
-                        categoria.NombreCategoria = reader.GetString("nombreCategoria");
-                        categoria.EstaActivo = reader.GetBoolean("estadoCategoria");
-
-
-                        listaCategoria.Add(categoria);
+                        listaCategoria.Add(LeerCategoria(reader));
                     }
                 }
             }
-
             return listaCategoria;
         }
 
-        public bool UpdateCategoria(Categoria categoria) {
+        public List<Categoria> GetAllCategoriaConEstado()
+        {
+            List<Categoria> listaCategoria = new List<Categoria>();
+            string query = @"SELECT idCategoria, nombreCategoria, estadoCategoria 
+                             FROM categorias 
+                             ORDER BY idCategoria DESC";
 
-            string query = "update categorias set nombreCategoria = @nombreCategoria, estadoCategoria = @estadoCategoria where idCategoria = @idCategoria";
-            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex)) {
-                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection)) {
-                    command.Parameters.AddWithValue("@nombreCategoria",categoria.NombreCategoria);
-                    command.Parameters.AddWithValue("@estadoCategoria", categoria.EstaActivo);
-                    command.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
-
-                    mySqlConnection.Open();
-                    int result = command.ExecuteNonQuery();
-                    if (result > 0) {
-                        return true;
-                    }
-                
-                }
-            }
-            return false;
-        }
-
-        public bool DeleteCategoria(Categoria categoria) {
-            string query = "Update categorias set estadoCategoria = 0 where idCategoria = @idCategoria";
-            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex)) {
-                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection)) {
-                    command.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
-
-                    mySqlConnection.Open();
-                    int result = command.ExecuteNonQuery();
-                    if (result > 0) {
-                        return true;
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+            {
+                mySqlConnection.Open();
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        listaCategoria.Add(LeerCategoria(reader));
                     }
                 }
             }
-            return false;
+            return listaCategoria;
         }
-            
+
+        public bool UpdateCategoria(Categoria categoria)
+        {
+            string query = @"UPDATE categorias 
+                             SET nombreCategoria = @nombreCategoria, 
+                                 estadoCategoria = @estadoCategoria 
+                             WHERE idCategoria = @idCategoria";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+            {
+                command.Parameters.AddWithValue("@nombreCategoria", categoria.NombreCategoria);
+                command.Parameters.AddWithValue("@estadoCategoria", categoria.EstaActivo);
+                command.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
+
+                mySqlConnection.Open();
+                int result = command.ExecuteNonQuery();
+                return result > 0;
+            }
+        }
+
+
+        public bool DeleteCategoria(int idCategoria)
+        {
+            return CambiarEstadoCategoria(idCategoria, false);
+        }
+
+        public bool CambiarEstadoCategoria(int idCategoria, bool estado)
+        {
+            string query = @"UPDATE categorias 
+                             SET estadoCategoria = @estadoCategoria 
+                             WHERE idCategoria = @idCategoria";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+            {
+                command.Parameters.AddWithValue("@idCategoria", idCategoria);
+                command.Parameters.AddWithValue("@estadoCategoria", estado);
+
+                mySqlConnection.Open();
+                int result = command.ExecuteNonQuery();
+                return result > 0;
+            }
+        }
     }
 }
-

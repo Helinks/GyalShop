@@ -10,8 +10,11 @@ namespace Proyecto.Services
 {
     public class CategoriaService
     {
-        DBCategoria dbCategoria = new DBCategoria();
-        public bool SetCategoria(Categoria categoria) {
+
+        private  DBCategoria dbCategoria = new DBCategoria();
+
+        public bool SetCategoria(Categoria categoria)
+        {
             return dbCategoria.SetCategoria(categoria);
         }
 
@@ -19,6 +22,7 @@ namespace Proyecto.Services
         {
             return dbCategoria.GetCategoria(categoria);
         }
+
         public List<Categoria> GetCategorias(Categoria categoria)
         {
             return dbCategoria.GetCategorias(categoria);
@@ -27,13 +31,25 @@ namespace Proyecto.Services
         {
             return dbCategoria.GetAllCategoria();
         }
-        public bool UpdateCategoria(Categoria categoria) { 
-        return dbCategoria.UpdateCategoria(categoria);
+        public List<Categoria> GetAllCategoriaConEstado()
+        {
+            return dbCategoria.GetAllCategoriaConEstado();
         }
 
-        public bool DeleteCategoria(Categoria categoria) {
-            return dbCategoria.DeleteCategoria(categoria);
+        public bool UpdateCategoria(Categoria categoria)
+        {
+            return dbCategoria.UpdateCategoria(categoria);
         }
 
+        public bool DeleteCategoria(Categoria categoria)
+        {
+            
+            return dbCategoria.CambiarEstadoCategoria(categoria.IdCategoria, false);
+        }
+
+        public bool CambiarEstadoCategoria(int idCategoria, bool estado)
+        {
+            return dbCategoria.CambiarEstadoCategoria(idCategoria, estado);
+        }
     }
 }

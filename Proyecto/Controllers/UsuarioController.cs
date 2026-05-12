@@ -6,16 +6,16 @@ namespace Proyecto.Controllers
 {
     internal class UsuarioController
     {
-        private UsuarioService usuarioService = new UsuarioService();
+        private readonly UsuarioService usuarioService = new UsuarioService();
 
         public List<Usuario> GetAll()
         {
             return usuarioService.GetAll();
         }
 
-        public Usuario GetById(int id)
+        public List<TipoUsuario> GetTiposUsuario()
         {
-            return usuarioService.GetById(id);
+            return usuarioService.GetTiposUsuario();
         }
 
         public bool Create(Usuario usuario)
@@ -23,14 +23,14 @@ namespace Proyecto.Controllers
             return usuarioService.Register(usuario);
         }
 
-        public bool Update(Usuario usuario)
+        public bool Update(Usuario usuario, bool cambiarPassword)
         {
-            return usuarioService.Update(usuario);
+            return usuarioService.Update(usuario, cambiarPassword);
         }
 
-        public bool Delete(int id)
+        public bool UpdateEstado(int idUsuario, bool estado)
         {
-            return usuarioService.Delete(id);
+            return usuarioService.UpdateEstado(idUsuario, estado);
         }
     }
 }

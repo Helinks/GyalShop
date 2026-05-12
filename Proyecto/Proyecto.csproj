@@ -169,8 +169,10 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoPorPedidoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Coverters\ImgConverter.cs" />
     <Compile Include="Models\Conex\DBCarrito.cs" />
     <Compile Include="Models\Conex\DBCategoria.cs" />
     <Compile Include="Models\Conex\DBEstado.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Services\CarritoService.cs" />
     <Compile Include="Services\CategoriaService.cs" />
     <Compile Include="Services\EstadoService.cs" />
+    <Compile Include="Services\HomeService.cs" />
     <Compile Include="Services\ProductoPorPedidoService.cs" />
     <Compile Include="Services\SesionService.cs" />
     <Compile Include="Services\PedidoService.cs" />

@@ -39,7 +39,7 @@
                 <Button Content="Compras"
         Style="{StaticResource MenuButton}"
         Click="BtnCompras_Click"/>
-                <Button Content="Compras"
+                <Button Content="Pedidos"
 Style="{StaticResource MenuButton}"
 Click="BtnPedidos_Click"/>
 
@@ -51,7 +51,7 @@ Click="BtnPedidos_Click"/>
 
         </Border>
 
-        <!-- 🔥 CONTENIDO -->
+      
         <ContentControl x:Name="MainContent"
                         Grid.Column="1"/>
 

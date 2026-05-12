@@ -10,30 +10,43 @@ namespace Proyecto.Services
 {
     internal class ProductoService
     {
-        DBProducto dbProducto= new DBProducto();
+        private readonly DBProducto dbProducto = new DBProducto();
 
-        public bool setProducto(Producto producto) {
+        // Registrar un nuevo producto
+        public bool setProducto(Producto producto)
+        {
             return dbProducto.setProducto(producto);
         }
-        public Producto getProducto(Producto producto) {
-            
-            return dbProducto.getProducto(producto);
-        }
-        public List<Producto> getProductos(Producto producto) {
 
-            return dbProducto.getProductos(producto);
-        }
-        public List<Producto> getAllProductos()
+        // Obtener un solo producto por ID (usando el objeto como filtro)
+        public Producto getProducto(Producto producto)
         {
 
+            return dbProducto.getProducto(producto);
+        }
+
+        
+        public List<Producto> getProductos(Producto producto)
+        {
             return dbProducto.getAllProductos();
         }
 
-        public bool updateProducto(Producto producto) { 
-        return dbProducto.updateProducto(producto);
+        public List<Producto> getAllProductos()
+        {
+            return dbProducto.getAllProductos();
         }
-        public bool deleteProducto(Producto producto) {
-            return dbProducto.deleteProducto(producto);
+
+        
+        public bool updateProducto(Producto producto)
+        {
+            return dbProducto.updateProducto(producto);
+        }
+
+
+       
+        public bool cambiarEstadoProducto(int idProducto, bool estado)
+        {
+            return dbProducto.cambiarEstadoProducto(idProducto, estado);
         }
     }
 }
