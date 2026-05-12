@@ -9,7 +9,7 @@ namespace Proyecto.Models.Conex
 {
     public class DBPedido
     {
-        string stringConex = "server=localhost; user=Backend; database=backend; password=123456; port=3306;";
+        string stringConex = "server=localhost; user=root; database=gyalshop; password=Dilnic2909*; port=3306;";
 
         public bool setPedido(Pedido pedido)
         {

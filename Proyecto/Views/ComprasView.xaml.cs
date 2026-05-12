@@ -101,7 +101,7 @@ namespace Proyecto.Views
 
             if (result == MessageBoxResult.Yes)
             {
-                controller.DeleteCategoria(selectedCategoria);
+       
                 limpiarCampos();
                 CargarDatos();
             }

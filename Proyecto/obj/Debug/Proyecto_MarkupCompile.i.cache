@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\
 Proyecto
 none
 false
 DEBUG;TRACE
-C:\Users\Helinks\Desktop\GyalShop\Proyecto\App.xaml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\App.xaml
 9-1640763181
 
-391750189773
-411620681778
+42-569387537
+41-122967816
 Views\CategoriaView.xaml;Views\ComprasView.xaml;Views\HomeView.xaml;Views\Login.xaml;Views\ProductoView.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
 
-False
+True
 

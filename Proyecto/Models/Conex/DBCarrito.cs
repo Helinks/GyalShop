@@ -8,7 +8,7 @@ namespace Proyecto.Models.Conex
 {
     public class DBCarrito
     {
-        string stringConex = "server=localhost; user=root; database=gyalshop; password=; port=3306;";
+        string stringConex = "server=localhost; user=root; database=gyalshop; password=Dilnic2909*; port=3306;";
 
         public bool SetCarrito(Carrito carrito)
         {

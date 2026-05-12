@@ -164,7 +164,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\CarritoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Converters\ImgConverter.cs" />
     <Compile Include="Models\Conex\DBCarrito.cs" />
     <Compile Include="Models\Conex\DBCategoria.cs" />
     <Compile Include="Models\Conex\DBPedido.cs" />
@@ -174,6 +176,7 @@
     <Compile Include="Models\TipoUsuario.cs" />
     <Compile Include="Services\CarritoService.cs" />
     <Compile Include="Services\CategoriaService.cs" />
+    <Compile Include="Services\HomeService.cs" />
     <Compile Include="Services\SesionService.cs" />
     <Compile Include="Services\PedidoService.cs" />
     <Compile Include="Services\ProductoService.cs" />

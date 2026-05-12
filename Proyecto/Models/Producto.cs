@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proyecto.Models
 {
@@ -14,22 +10,23 @@ namespace Proyecto.Models
         public int CantidadProducto { get; set; }
         public double PrecioProducto { get; set; }
         public int DescuentoProducto { get; set; }
+        public string ImagenProducto { get; set; }
         public bool EstaActivo { get; set; }
 
-        public Producto(int idProducto, Categoria idCategoriaProducto, string nombreProducto, int cantidadProducto, double precioProducto, int descuentoProducto, bool estaActivo)
+        public Producto(int idProducto, Categoria idCategoriaProducto, string nombreProducto, int cantidadProducto, double precioProducto, int descuentoProducto, bool estaActivo, string imagenProducto = null)
         {
             IdProducto = idProducto;
-            this.IdCategoriaProducto = idCategoriaProducto;
+            IdCategoriaProducto = idCategoriaProducto;
             NombreProducto = nombreProducto;
             CantidadProducto = cantidadProducto;
             PrecioProducto = precioProducto;
             DescuentoProducto = descuentoProducto;
             EstaActivo = estaActivo;
+            ImagenProducto = imagenProducto;
         }
 
         public Producto()
         {
-            
         }
     }
 }
