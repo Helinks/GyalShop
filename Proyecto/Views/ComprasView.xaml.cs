@@ -247,7 +247,7 @@ namespace Proyecto.Views
 
             if (result == MessageBoxResult.Yes)
             {
-                Pedido pedido = new Pedido(0, SesionService.UsuarioActual.IdUsuario, 0);
+                Pedido pedido = new Pedido(0, SesionService.UsuarioActual.IdUsuario, null);
                 List <Carrito> carrtioList = carritoController.GetCarrito(SesionService.UsuarioActual);
 
                 pedidoController.SetPedido(pedido);

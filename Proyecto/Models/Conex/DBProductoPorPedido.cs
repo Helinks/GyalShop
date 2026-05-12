@@ -51,7 +51,8 @@ namespace Proyecto.Models.Conex
 
         public List<ProductoPorPedido> GetProductoPorPedido(Pedido pedido) {
             List <ProductoPorPedido> productosXPedidos= new List<ProductoPorPedido>();
-            string query = "selecte * from productoporpedido where idPedidoProducto = @idPedidoProducto";
+            Categoria categoria = new Categoria();
+            string query = "select * from productoporpedido pp inner join productos p on pp.idProductoPedido = p.idProducto  where idPedidoProducto = @idPedidoProducto";
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex)) {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection)) {
                     command.Parameters.AddWithValue("@idPedidoProducto", pedido.IdPedido);
@@ -59,9 +60,10 @@ namespace Proyecto.Models.Conex
                     using (MySqlDataReader reader = command.ExecuteReader()) {
                         while (reader.Read()) { 
                         ProductoPorPedido productoPorPedido1 = new ProductoPorPedido();
+                            Producto producto = new Producto(reader.GetInt32("idProducto"), categoria,reader.GetString("nombreProducto"), 0, 0, 0, false, "");
                             productoPorPedido1.IdProductoXPedido = reader.GetInt32("idProductoXPedido");
                             productoPorPedido1.IdPedidoProducto = reader.GetInt32("idPedidoProducto");
-                            productoPorPedido1.IdProductoPedido = reader.GetInt32("idProductoPedido");
+                            productoPorPedido1.Producto = producto;
                             productoPorPedido1.PrecioProducto = reader.GetDouble("precioProducto");
                             productoPorPedido1.CantidadProducto = reader.GetInt32("cantidadProducto");
                             productoPorPedido1.Subtotal = reader.GetDouble("subtotal");

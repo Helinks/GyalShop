@@ -46,16 +46,15 @@ namespace Proyecto.Models.Conex
             }
             return resEstado;
         }
-        public List<Estado> GetAllEstado(Estado estado)
+        public List<Estado> GetAllEstado()
         {
             List<Estado> estados = new List<Estado>();
-            string query = "select * from estado where idEstado = @idEstado";
+            string query = "select * from estado ";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idEstado", estado.IdEstado);
                     mySqlConnection.Open();
 
                     using (MySqlDataReader reader = command.ExecuteReader()) { 

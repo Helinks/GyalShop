@@ -57,9 +57,10 @@ namespace Proyecto.Models.Conex
 
                         while (reader.Read())
                         {
+                            Estado estado = new Estado(reader.GetInt32("idEstadoPedido"), "");
                             resPedido.IdPedido = reader.GetInt32("idPedido");
                             resPedido.IdUsuarioPedido = reader.GetInt32("idUsuarioPedido");
-                            resPedido.IdEstadoPedido= reader.GetInt32("idEstadoPedido");
+                            resPedido.IdEstadoPedido= estado;
                         }
                     }
                 }
@@ -73,7 +74,7 @@ namespace Proyecto.Models.Conex
 
             List<Pedido> pedidos = new List<Pedido>();
 
-            string query = "select * from pedidos";
+            string query = "select * from pedidos p inner join estado e on p.idEstadoPedido = e.idEstado";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
@@ -87,10 +88,10 @@ namespace Proyecto.Models.Conex
                         while (reader.Read())
                         {
                             Pedido pedido = new Pedido();
-
+                            Estado estado = new Estado(reader.GetInt32("idEstadoPedido"), reader.GetString("descEstado"));
                             pedido.IdPedido = reader.GetInt32("idPedido");
                             pedido.IdUsuarioPedido = reader.GetInt32("idUsuarioPedido");
-                            pedido.IdEstadoPedido = reader.GetInt32("idEstadoPedido");
+                            pedido.IdEstadoPedido = estado;
 
                             pedidos.Add(pedido);
                         }

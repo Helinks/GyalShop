@@ -18,6 +18,7 @@ namespace Proyecto.Services
             return dbPedido.GetPedido(pedido);
         }
         public List<Pedido> GetAllPedido() {
+           
             return dbPedido.GetAllPedido();
         }
         public bool UpdatePedido(Pedido pedido) { 

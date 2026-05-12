@@ -19,7 +19,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id del pedido" Binding="{Binding IdPedido}" Width="70"/>
-                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="70"/>
+                <DataGridTextColumn Header="Estado" Binding="{Binding IdEstadoPedido.DescEstado}" Width="70"/>
             </DataGrid.Columns>
 
         </DataGrid>
@@ -27,12 +27,11 @@
           AutoGenerateColumns="False"
           IsReadOnly="True"
           SelectionMode="Single"
-          SelectionChanged="dgProductoPedido_SelectionChanged"
           Margin="200,0,0,0" HorizontalAlignment="Left" Width="242">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" Width="60"/>
-                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="65"/>
+                <DataGridTextColumn Header="Producto" Binding="{Binding Producto.NombreProducto}" Width="60"/>
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding CantidadProducto}" Width="65"/>
                 <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="70"/>
             </DataGrid.Columns>
 
@@ -47,17 +46,16 @@
                        Margin="0,0,0,20" Width="301"/>
 
 
-            <TextBlock x:Name="nombreProductoLabel" Text="Nombre Producto:" Margin="0,0,0,5" Visibility="Collapsed"/>
-            <TextBlock x:Name="nombreProducto" Text="" Margin="0,0,0,5" Visibility="Collapsed"/>
-            <TextBlock x:Name="cantidadProductoLabel" Text="Cantidad Producto:" Margin="0,0,0,5" Visibility="Collapsed"/>
-            <xctk:IntegerUpDown x:Name="numCantidad" 
-                                Width="50"
-                            Value="0" 
-                            Minimum="0" 
-                            Maximum="100" 
-                            Increment="1" 
-                            HorizontalAlignment="Left" 
-                            Visibility="Collapsed"/>
+            
+            <TextBlock x:Name="cantidadProductoLabel" Text="Cambiar estado:" Margin="0,0,0,5" Visibility="Collapsed"/>
+			<ComboBox
+				x:Name="cmEstado"
+				Margin="0,0,0,12"
+				Height="35"
+				DisplayMemberPath="DescEstado"
+                              SelectedValuePath="IdEstado"
+				Visibility="Collapsed"
+				/>
             <TextBox x:Name="txtNombre"
                      Height="35"
                      Margin="0,0,0,12"
@@ -69,9 +67,9 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <Button Content="Agregar al Carro"
-                        x:Name="BtnAgregar"
-                        Click="AgregarCarrito"
+                <Button Content="Cambiar Estado"
+                        x:Name="BtnEstado"
+                        Click="CambiarEstadoPedido"
                         Width="100"
                         Margin="0,0,10,0"
                         Visibility="Collapsed"/>
@@ -81,31 +79,6 @@
                         Width="100"
                         Margin="0,0,10,0"
                         Visibility="Collapsed"/>
-
-                <Button Content="Actualizar"
-                        x:Name="BtnActualizar"
-                        Click="BtnActualizar_Click"
-                        Width="100"
-                        Margin="0,0,10,0"
-                        Visibility="Collapsed"/>
-
-                <Button Content="Eliminar Producto"
-                        x:Name="BtnEliminar"
-                        Click="BtnEliminar_Click"
-                        Width="100"
-                        Visibility="Collapsed"/>
-                <Button Content="Eliminar Carrito"
-        x:Name="BtnEliminarCarrito"
-        Click="BtnEliminarCarrito_Click"
-        Width="100"
-        Visibility="Visible"
-        />
-                <Button Content="Finalizar compra"
-x:Name="BtnFinalizarCompra"
-Click="BtnFinalizarCompra_Click"
-Width="100"
-Visibility="Visible"
-/>
 
             </StackPanel>
 
