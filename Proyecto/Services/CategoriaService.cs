@@ -11,28 +11,28 @@ namespace Proyecto.Services
     public class CategoriaService
     {
         DBCategoria dbCategoria = new DBCategoria();
-        public bool setCategoria(Categoria categoria) {
-            return dbCategoria.setCategoria(categoria);
+        public bool SetCategoria(Categoria categoria) {
+            return dbCategoria.SetCategoria(categoria);
         }
 
-        public Categoria getCategoria(Categoria categoria)
+        public Categoria GetCategoria(Categoria categoria)
         {
-            return dbCategoria.getCategoria(categoria);
+            return dbCategoria.GetCategoria(categoria);
         }
-        public List<Categoria> getCategorias(Categoria categoria)
+        public List<Categoria> GetCategorias(Categoria categoria)
         {
-            return dbCategoria.getCategorias(categoria);
+            return dbCategoria.GetCategorias(categoria);
         }
-        public List<Categoria> getAllCategoria()
+        public List<Categoria> GetAllCategoria()
         {
-            return dbCategoria.getAllCategoria();
+            return dbCategoria.GetAllCategoria();
         }
-        public bool updateCategoria(Categoria categoria) { 
-        return dbCategoria.updateCategoria(categoria);
+        public bool UpdateCategoria(Categoria categoria) { 
+        return dbCategoria.UpdateCategoria(categoria);
         }
 
-        public bool deleteCategoria(Categoria categoria) {
-            return dbCategoria.deleteCategoria(categoria);
+        public bool DeleteCategoria(Categoria categoria) {
+            return dbCategoria.DeleteCategoria(categoria);
         }
 
     }

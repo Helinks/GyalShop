@@ -14,7 +14,7 @@ namespace Proyecto.Models.Conex
         public bool setPedido(Pedido pedido)
         {
 
-            string queryInsert = "INSERT INTO pedidos (idUsuarioPedido, idEstadoPedido) VALUES (@idUsuarioPedido, @idEstadoPedido)";
+            string queryInsert = "insert into pedidos (idUsuarioPedido, idEstadoPedido) values (@idUsuarioPedido, @idEstadoPedido)";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {

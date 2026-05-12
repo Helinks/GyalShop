@@ -36,6 +36,9 @@
                 <Button Content="Productos"
                         Style="{StaticResource MenuButton}"
                         Click="BtnProducts_Click"/>
+                <Button Content="Compras"
+        Style="{StaticResource MenuButton}"
+        Click="BtnCompras_Click"/>
 
                 <Button Content="Cerrar sesión"
                         Style="{StaticResource MenuButton}"

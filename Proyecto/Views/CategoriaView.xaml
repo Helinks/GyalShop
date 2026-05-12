@@ -23,7 +23,7 @@
 
         </DataGrid>
 
-        <!-- FORMULARIO -->
+        
         <StackPanel Grid.Column="1" Margin="20" Height="329">
 
             <TextBlock Text="Gestión de Categorias"
@@ -31,7 +31,7 @@
                        FontWeight="Bold"
                        Margin="0,0,0,20"/>
 
-            <!-- Nombre -->
+            
             <TextBlock Text="Nombre de categoria" Margin="0,0,0,5"/>
             <TextBox x:Name="txtNombre"
                      Height="35"
@@ -40,7 +40,7 @@
             
 
 
-            <!-- Botones -->
+            
             <StackPanel Orientation="Horizontal">
 
                 <Button Content="Guardar"

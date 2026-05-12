@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="Proyecto.Views.ComprasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <Grid Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="dgProductos"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionChanged="dgProductos_SelectionChanged"
+                  Margin="0,0,236,0">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" Width="100"/>
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding CantidadProducto}" Width="70"/>
+                <DataGridTextColumn Header="Precio" Binding="{Binding PrecioProducto}" Width="50"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <DataGrid x:Name="dgCarrito"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          SelectionMode="Single"
+          SelectionChanged="dgProductoCarrito_SelectionChanged"
+          Margin="229,0,0,0" HorizontalAlignment="Left" Width="216">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Producto" Binding="{Binding nombreProducto}" Width="50"/>
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding cantidad}" Width="65"/>
+                <DataGridTextColumn Header="Precio" Binding="{Binding precioUnidad}" Width="50"/>
+                <DataGridTextColumn Header="Subtotal" Binding="{Binding subtotal}" Width="50"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+        <StackPanel Grid.Column="1" Margin="20" Height="329">
+
+            <TextBlock Text="Carrito"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="0,0,0,20" Width="301"/>
+
+
+            <TextBlock x:Name="nombreProductoLabel" Text="Nombre Producto:" Margin="0,0,0,5" Visibility="Collapsed"/>
+            <TextBlock x:Name="nombreProducto" Text="" Margin="0,0,0,5" Visibility="Collapsed"/>
+            <TextBlock x:Name="cantidadProductoLabel" Text="Cantidad Producto:" Margin="0,0,0,5" Visibility="Collapsed"/>
+            <xctk:IntegerUpDown x:Name="numCantidad" 
+                                Width="50"
+                            Value="0" 
+                            Minimum="0" 
+                            Maximum="100" 
+                            Increment="1" 
+                            HorizontalAlignment="Left" 
+                            Visibility="Collapsed"/>
+            <TextBox x:Name="txtNombre"
+                     Height="35"
+                     Margin="0,0,0,12"/>
+
+
+
+
+
+            <StackPanel Orientation="Horizontal">
+
+                <Button Content="Agregar al Carro"
+                        x:Name="BtnAgregar"
+                        Click="AgregarCarrito"
+                        Width="100"
+                        Margin="0,0,10,0"
+                        Visibility="Collapsed"/>
+                <Button Content="Cancelar"
+                        x:Name="BtnCancelar"
+                        Click="BtnCancelar_Click"
+                        Width="100"
+                        Margin="0,0,10,0"
+                        Visibility="Collapsed"/>
+
+                <Button Content="Actualizar"
+                        x:Name="BtnActualizar"
+                        Click="BtnActualizar_Click"
+                        Width="100"
+                        Margin="0,0,10,0"
+                        Visibility="Collapsed"/>
+
+                <Button Content="Eliminar"
+                        x:Name="BtnEliminar"
+                        Click="BtnEliminar_Click"
+                        Width="100"
+                        Visibility="Collapsed"/>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

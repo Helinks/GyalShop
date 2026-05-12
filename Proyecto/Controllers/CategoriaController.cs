@@ -11,27 +11,27 @@ namespace Proyecto.Controllers
     public class CategoriaController
     {
         CategoriaService categoriaService = new CategoriaService();
-        public bool setCategoria(Categoria categoria)
+        public bool SetCategoria(Categoria categoria)
         {
-            return categoriaService.setCategoria(categoria);
+            return categoriaService.SetCategoria(categoria);
         }
-        public Categoria getCategoria(Categoria categoria) { 
-        return categoriaService.getCategoria(categoria);
+        public Categoria GetCategoria(Categoria categoria) { 
+        return categoriaService.GetCategoria(categoria);
         }
         public List<Categoria> GetCategorias(Categoria categoria) { 
-        return categoriaService.getCategorias(categoria);
+        return categoriaService.GetCategorias(categoria);
         }
-        public List<Categoria> getAllCategoria()
+        public List<Categoria> GetAllCategoria()
         {
-            return categoriaService.getAllCategoria();
+            return categoriaService.GetAllCategoria();
         }
-        public bool updateCategoria(Categoria categoria)
+        public bool UpdateCategoria(Categoria categoria)
         {
-            return categoriaService.updateCategoria(categoria);
+            return categoriaService.UpdateCategoria(categoria);
         }
 
-        public bool deleteCategoria(Categoria categoria) { 
-        return categoriaService.deleteCategoria(categoria);
+        public bool DeleteCategoria(Categoria categoria) { 
+        return categoriaService.DeleteCategoria(categoria);
         }
     }
 }

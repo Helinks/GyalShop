@@ -39,6 +39,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ComprasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +139,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdSharp, Version=0.8.8.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.8.8\lib\net462\ZstdSharp.dll</HintPath>
     </Reference>
@@ -144,13 +163,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Models\Conex\DBCarrito.cs" />
     <Compile Include="Models\Conex\DBCategoria.cs" />
     <Compile Include="Models\Conex\DBPedido.cs" />
     <Compile Include="Models\Conex\DBProducto.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ProductoPorPedido.cs" />
     <Compile Include="Models\TipoUsuario.cs" />
+    <Compile Include="Services\CarritoService.cs" />
     <Compile Include="Services\CategoriaService.cs" />
     <Compile Include="Services\SesionService.cs" />
     <Compile Include="Services\PedidoService.cs" />
@@ -158,6 +180,9 @@
     <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="Views\CategoriaView.xaml.cs">
       <DependentUpon>CategoriaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComprasView.xaml.cs">
+      <DependentUpon>ComprasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -199,7 +224,7 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Conex\DBUsuario.cs" />
     <Compile Include="Models\Pedido.cs" />
-    <Compile Include="Models\PedidoItem.cs" />
+    <Compile Include="Models\Carrito.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

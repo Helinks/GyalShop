@@ -33,8 +33,29 @@ namespace Proyecto.Views
         }
         private void CargarDatos()
         {
-            CBCategoria.ItemsSource = categoriaController.getAllCategoria();
+            CBCategoria.ItemsSource = categoriaController.GetAllCategoria();
             dgProductos.ItemsSource = productoController.getAllProductos();
+        }
+        private void limpiarCampos() {
+            txtNombre.Text = string.Empty;
+            txtCantidad.Text = string.Empty;
+            txtDescuento.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
+            CBCategoria.SelectedIndex = -1;
+        }
+        private void BtnSwitch() {
+
+            if (BtnCancelar.Visibility == Visibility.Visible) {
+                BtnActualizar.Visibility = Visibility.Collapsed;
+                BtnEliminar.Visibility = Visibility.Collapsed;
+                BtnCancelar.Visibility = Visibility.Collapsed;
+                BtnGuardar.Visibility = Visibility.Visible;
+                return;
+            }
+            BtnActualizar.Visibility = Visibility.Visible;
+            BtnEliminar.Visibility = Visibility.Visible;
+            BtnCancelar.Visibility = Visibility.Visible;
+            BtnGuardar.Visibility = Visibility.Collapsed;
         }
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
@@ -56,7 +77,7 @@ namespace Proyecto.Views
             };
 
             productoController.setProducto(producto);
-            txtNombre.Text = string.Empty;
+            limpiarCampos();
             CargarDatos();
         }
 
@@ -79,16 +100,9 @@ namespace Proyecto.Views
             selectedProducto.IdCategoriaProducto = categoria;
 
             productoController.updateProducto(selectedProducto);
-            txtNombre.Text = string.Empty;
-            txtCantidad.Text = string.Empty;
-            txtDescuento.Text = string.Empty;
-            txtPrecio.Text = string.Empty;
-            CBCategoria.SelectedIndex = -1;
-            BtnActualizar.Visibility = Visibility.Collapsed;
-            BtnEliminar.Visibility = Visibility.Collapsed;
-            BtnCancelar.Visibility = Visibility.Collapsed;
-            BtnGuardar.Visibility = Visibility.Visible;
             CargarDatos();
+            MessageBoxResult update = MessageBox.Show(
+                "Se ha actualizado con exito");
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
@@ -96,28 +110,23 @@ namespace Proyecto.Views
             if (selectedProducto == null) return;
 
             MessageBoxResult result = MessageBox.Show(
-                "¿Inhabilitar categoria?",
+                "¿Esta seguro que desea eliminar esta categoria?",
                 "Confirmación",
                 MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.Yes)
             {
                 productoController.deleteProducto(selectedProducto);
+                limpiarCampos();
+                BtnSwitch();
                 CargarDatos();
             }
         }
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            
-            txtNombre.Text = string.Empty;
-            txtCantidad.Text = string.Empty;
-            txtDescuento.Text = string.Empty;
-            txtPrecio.Text = string.Empty;
-            CBCategoria.SelectedIndex = -1;
-            BtnActualizar.Visibility = Visibility.Collapsed;
-            BtnEliminar.Visibility = Visibility.Collapsed;
-            BtnCancelar.Visibility = Visibility.Collapsed;
-            BtnGuardar.Visibility = Visibility.Visible;
+
+            limpiarCampos();
+            BtnSwitch();
             CargarDatos();
 
 
@@ -134,7 +143,6 @@ namespace Proyecto.Views
                 txtDescuento.Text = selectedProducto.DescuentoProducto.ToString();
                 txtPrecio.Text = selectedProducto.PrecioProducto.ToString();
                 CBCategoria.SelectedValue = selectedProducto.IdCategoriaProducto.IdCategoria;
-
                 BtnActualizar.Visibility = Visibility.Visible;
                 BtnEliminar.Visibility = Visibility.Visible;
                 BtnCancelar.Visibility = Visibility.Visible;

@@ -32,6 +32,10 @@ namespace Proyecto.Views
         {
             MainContent.Content = new ProductoView();
         }
+        private void BtnCompras_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new ComprasView();
+        }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {

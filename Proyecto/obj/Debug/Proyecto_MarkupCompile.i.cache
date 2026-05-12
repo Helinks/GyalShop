@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\App.xaml
-8556849285
+9-1640763181
 
-35-387778602
-361290423599
-Views\CategoriaView.xaml;Views\HomeView.xaml;Views\Login.xaml;Views\ProductoView.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
+391750189773
+411620681778
+Views\CategoriaView.xaml;Views\ComprasView.xaml;Views\HomeView.xaml;Views\Login.xaml;Views\ProductoView.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
 
-True
+False
 

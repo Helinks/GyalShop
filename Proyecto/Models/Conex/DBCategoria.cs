@@ -11,7 +11,7 @@ namespace Proyecto.Models.Conex
     {
         string stringConex = "server=localhost; user=root; database=gyalshop; password=; port=3306;";
 
-        public bool setCategoria(Categoria categoria) {
+        public bool SetCategoria(Categoria categoria) {
           
                 string queryInsert = "INSERT INTO categorias (nombreCategoria, estadoCategoria) VALUES (@nombreCategoria, @estadoCategoria)";
 
@@ -32,7 +32,7 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public Categoria getCategoria(Categoria categoria) {
+        public Categoria GetCategoria(Categoria categoria) {
            
                 Categoria resCategoria = new Categoria();
                 string query = "select * from categorias where idCategoria = @idCategoria";
@@ -55,7 +55,7 @@ namespace Proyecto.Models.Conex
         }
 
         
-        public List<Categoria> getCategorias(Categoria categoria)
+        public List<Categoria> GetCategorias(Categoria categoria)
         {
            
                 List<Categoria> resCategorias = new List<Categoria>();
@@ -88,7 +88,7 @@ namespace Proyecto.Models.Conex
    
         }
 
-        public List<Categoria> getAllCategoria()
+        public List<Categoria> GetAllCategoria()
         {
             List<Categoria> listaCategoria = new List<Categoria>();
 
@@ -119,7 +119,7 @@ namespace Proyecto.Models.Conex
             return listaCategoria;
         }
 
-        public bool updateCategoria(Categoria categoria) {
+        public bool UpdateCategoria(Categoria categoria) {
 
             string query = "update categorias set nombreCategoria = @nombreCategoria, estadoCategoria = @estadoCategoria where idCategoria = @idCategoria";
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex)) {
@@ -139,7 +139,7 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public bool deleteCategoria(Categoria categoria) {
+        public bool DeleteCategoria(Categoria categoria) {
             string query = "Update categorias set estadoCategoria = 0 where idCategoria = @idCategoria";
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex)) {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection)) {
