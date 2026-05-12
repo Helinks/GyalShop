@@ -51,6 +51,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PerfilView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProductoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +169,7 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Converters\ImgConverter.cs" />
     <Compile Include="Models\Conex\DBCarrito.cs" />
@@ -193,6 +198,9 @@
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PerfilView.xaml.cs">
+      <DependentUpon>PerfilView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductoView.xaml.cs">
       <DependentUpon>ProductoView.xaml</DependentUpon>

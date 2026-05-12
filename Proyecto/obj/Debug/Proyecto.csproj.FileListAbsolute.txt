@@ -177,3 +177,5 @@ C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.exe
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.g.cs

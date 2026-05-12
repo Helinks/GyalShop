@@ -119,7 +119,9 @@ namespace Proyecto.Views
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Aquí puedes abrir el perfil del usuario.");
+            MainWindow main = (MainWindow)Window.GetWindow(this);
+
+            main.MainContent.Content = new PerfilView();
         }
     }
 }

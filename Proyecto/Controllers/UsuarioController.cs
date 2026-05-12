@@ -18,11 +18,6 @@ namespace Proyecto.Controllers
             return usuarioService.GetTiposUsuario();
         }
 
-        public Usuario GetById(int id)
-        {
-            return usuarioService.GetById(id);
-        }
-
         public bool Create(Usuario usuario)
         {
             return usuarioService.Register(usuario);
@@ -36,11 +31,6 @@ namespace Proyecto.Controllers
         public bool UpdateEstado(int idUsuario, bool estado)
         {
             return usuarioService.UpdateEstado(idUsuario, estado);
-        }
-
-        public bool Delete(int id)
-        {
-            return usuarioService.Delete(id);
         }
     }
 }
