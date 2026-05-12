@@ -20,7 +20,7 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idCategoriaProducto", producto.IdCategoriaProducto.IdCategoria);
+                    command.Parameters.AddWithValue("@idCategoriaProducto", producto.IdCategoriaProducto);
                     command.Parameters.AddWithValue("@nombreProducto", producto.NombreProducto);
                     command.Parameters.AddWithValue("@cantidadProducto", producto.CantidadProducto);
                     command.Parameters.AddWithValue("@precioProducto", producto.PrecioProducto);
@@ -62,8 +62,7 @@ namespace Proyecto.Models.Conex
                         {
                             resProducto.IdProducto = reader.GetInt32("idProducto");
 
-                            resProducto.IdCategoriaProducto = new Categoria();
-                            resProducto.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
+                            resProducto.IdCategoriaProducto = reader.GetInt32("idCategoriaProducto");
 
                             resProducto.NombreProducto = reader.GetString("nombreProducto");
                             resProducto.CantidadProducto = reader.GetInt32("cantidadProducto");
@@ -101,8 +100,7 @@ namespace Proyecto.Models.Conex
 
                             productos.IdProducto = reader.GetInt32("idProducto");
 
-                            productos.IdCategoriaProducto = new Categoria();
-                            productos.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
+                            productos.IdCategoriaProducto = reader.GetInt32("idCategoriaProducto");
 
                             productos.NombreProducto = reader.GetString("nombreProducto");
                             productos.CantidadProducto = reader.GetInt32("cantidadProducto");
@@ -143,8 +141,7 @@ namespace Proyecto.Models.Conex
 
                             productos.IdProducto = reader.GetInt32("idProducto");
 
-                            productos.IdCategoriaProducto = new Categoria();
-                            productos.IdCategoriaProducto.IdCategoria = reader.GetInt32("idCategoriaProducto");
+                            productos.IdCategoriaProducto = reader.GetInt32("idCategoriaProducto");
 
                             productos.NombreProducto = reader.GetString("nombreProducto");
                             productos.CantidadProducto = reader.GetInt32("cantidadProducto");
@@ -171,7 +168,7 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idCategoriaProducto", producto.IdCategoriaProducto.IdCategoria);
+                    command.Parameters.AddWithValue("@idCategoriaProducto", producto.IdCategoriaProducto);
                     command.Parameters.AddWithValue("@nombreProducto", producto.NombreProducto);
                     command.Parameters.AddWithValue("@cantidadProducto", producto.CantidadProducto);
                     command.Parameters.AddWithValue("@precioProducto", producto.PrecioProducto);

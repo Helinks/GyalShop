@@ -1,6 +1,5 @@
 ﻿using Proyecto.Controllers;
 using Proyecto.Models;
-using Proyecto.Models.Conex;
 using Proyecto.Services;
 using System;
 using System.Collections.Generic;
@@ -9,9 +8,10 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
+
 namespace Proyecto.Views
 {
-    public partial class ComprasView : UserControl
+    public partial class PedidosView: UserControl
     {
         private CategoriaController controller = new CategoriaController();
         private ProductoController productoController = new ProductoController();
@@ -20,8 +20,9 @@ namespace Proyecto.Views
         private ProductoPorPedidoController productoPorPedidoController = new ProductoPorPedidoController();
         private Producto selectedProducto;
         private Carrito selectedCarrito;
+        private Pedido selectedPedido;
 
-        public ComprasView()
+        public PedidosView()
         {
             InitializeComponent();
             CargarDatos();
@@ -29,8 +30,8 @@ namespace Proyecto.Views
 
         private void CargarDatos()
         {
-            dgProductos.ItemsSource = productoController.getAllProductos();
-            dgCarrito.ItemsSource = carritoController.GetCarrito(SesionService.UsuarioActual);
+
+            dgPedidos.ItemsSource = pedidoController.GetAllPedido();
         }
         private void LimpiarCampos()
         {
@@ -39,8 +40,9 @@ namespace Proyecto.Views
             selectedProducto = null;
             selectedCarrito = null;
         }
-        
-        private void BtnsOff() {
+
+        private void BtnsOff()
+        {
             BtnActualizar.Visibility = Visibility.Collapsed;
             BtnEliminar.Visibility = Visibility.Collapsed;
             BtnCancelar.Visibility = Visibility.Collapsed;
@@ -48,14 +50,16 @@ namespace Proyecto.Views
             BtnEliminarCarrito.Visibility = Visibility.Visible;
             BtnFinalizarCompra.Visibility = Visibility.Visible;
         }
-        private void LimpiarVista() {
+        private void LimpiarVista()
+        {
             nombreProductoLabel.Visibility = Visibility.Collapsed;
             cantidadProductoLabel.Visibility = Visibility.Collapsed;
             nombreProducto.Visibility = Visibility.Collapsed;
             numCantidad.Visibility = Visibility.Collapsed;
             nombreProducto.Text = "";
         }
-        private void ProductoSelected() {
+        private void ProductoSelected()
+        {
             nombreProductoLabel.Visibility = Visibility.Visible;
             cantidadProductoLabel.Visibility = Visibility.Visible;
             nombreProducto.Visibility = Visibility.Visible;
@@ -114,7 +118,7 @@ namespace Proyecto.Views
             }
             if (selectedCarrito == null) return;
 
-            selectedCarrito.Cantidad= numCantidad.Value ?? 0;
+            selectedCarrito.Cantidad = numCantidad.Value ?? 0;
 
             carritoController.UpdateCarrito(selectedCarrito);
             CargarDatos();
@@ -149,30 +153,32 @@ namespace Proyecto.Views
             CargarDatos();
         }
 
-        private void dgProductos_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void dgPedido_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            selectedProducto = dgProductos.SelectedItem as Producto;
+            selectedProducto = dgPedidos.SelectedItem as Producto;
 
             if (selectedProducto != null)
             {
                 ProductoSelected();
+                dgProductosPedido.ItemsSource = productoPorPedidoController.GetProductoPorPedido(selectedPedido);
             }
         }
-        private void dgProductoCarrito_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void dgProductoPedido_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            selectedCarrito = dgCarrito.SelectedItem as Carrito;
-            
+            selectedCarrito = dgProductosPedido.SelectedItem as Carrito;
+
 
             if (selectedCarrito != null)
-            { 
-            CarritoProductoSelected();
+            {
+                CarritoProductoSelected();
             }
         }
 
 
         private void AgregarCarrito(object sender, RoutedEventArgs e)
         {
-            if (numCantidad.Value== 0) {
+            if (numCantidad.Value == 0)
+            {
                 MessageBoxResult result = MessageBox.Show(
                 "Por favor escoja la cantidad del producto");
                 return;
@@ -183,10 +189,10 @@ namespace Proyecto.Views
                 "No se ha escogido ningun producto");
                 return;
             }
-            int cantidad = numCantidad.Value ?? 0 ;
-            Producto producto = dgProductos.SelectedItem as Producto;
+            int cantidad = numCantidad.Value ?? 0;
+            Producto producto = dgProductosPedido.SelectedItem as Producto;
             Carrito itemExistente = carritoController.GetCarrito(SesionService.UsuarioActual).FirstOrDefault(x => x.IdProducto == producto.IdProducto);
-           
+
             Carrito carritoCliente;
 
             if (itemExistente != null)
@@ -196,7 +202,7 @@ namespace Proyecto.Views
             }
             else
             {
-                carritoCliente= new Carrito (0,producto.IdProducto, SesionService.UsuarioActual.IdUsuario, producto.NombreProducto, producto.PrecioProducto, cantidad );
+                carritoCliente = new Carrito(0, producto.IdProducto, SesionService.UsuarioActual.IdUsuario, producto.NombreProducto, producto.PrecioProducto, cantidad);
                 carritoController.SetCarrito(carritoCliente);
             }
             LimpiarCampos();
@@ -208,17 +214,18 @@ namespace Proyecto.Views
         private void BtnEliminarCarrito_Click(object sender, RoutedEventArgs e)
         {
             var listaCarrito = carritoController.GetCarrito(SesionService.UsuarioActual);
-            if (listaCarrito == null || listaCarrito.Count == 0) {
+            if (listaCarrito == null || listaCarrito.Count == 0)
+            {
                 MessageBoxResult message = MessageBox.Show(
                "No hay productos en tu carrito");
-                dgCarrito.ItemsSource = null;
+                dgProductosPedido.ItemsSource = null;
                 return;
             }
-            
-                MessageBoxResult result = MessageBox.Show(
-                "¿Esta seguro que desea eliminar todos los productos del carrito?",
-                "Confirmación",
-                MessageBoxButton.YesNo);
+
+            MessageBoxResult result = MessageBox.Show(
+            "¿Esta seguro que desea eliminar todos los productos del carrito?",
+            "Confirmación",
+            MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -236,7 +243,7 @@ namespace Proyecto.Views
             {
                 MessageBoxResult message = MessageBox.Show(
                "No hay productos en tu carrito");
-                dgCarrito.ItemsSource = null;
+                dgProductosPedido.ItemsSource = null;
                 return;
             }
 
@@ -248,11 +255,11 @@ namespace Proyecto.Views
             if (result == MessageBoxResult.Yes)
             {
                 Pedido pedido = new Pedido(0, SesionService.UsuarioActual.IdUsuario, 0);
-                List <Carrito> carrtioList = carritoController.GetCarrito(SesionService.UsuarioActual);
+                List<Carrito> carrtioList = carritoController.GetCarrito(SesionService.UsuarioActual);
 
                 pedidoController.SetPedido(pedido);
                 productoPorPedidoController.SetProductoPorPedido(pedido, carrtioList);
-               carritoController.DeleteCarrito(SesionService.UsuarioActual);
+                carritoController.DeleteCarrito(SesionService.UsuarioActual);
                 LimpiarVista();
                 LimpiarCampos();
                 BtnsOff();

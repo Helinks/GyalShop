@@ -39,6 +39,9 @@
                 <Button Content="Compras"
         Style="{StaticResource MenuButton}"
         Click="BtnCompras_Click"/>
+                <Button Content="Compras"
+Style="{StaticResource MenuButton}"
+Click="BtnPedidos_Click"/>
 
                 <Button Content="Cerrar sesión"
                         Style="{StaticResource MenuButton}"

@@ -87,3 +87,5 @@ C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.CoreCompile
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.Up2Date
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.exe
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.g.cs

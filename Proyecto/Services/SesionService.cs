@@ -2,7 +2,7 @@
 
 namespace Proyecto.Services
 {
-    internal class SesionService
+    public static class SesionService
     {
         public static Usuario UsuarioActual { get; set; }
 

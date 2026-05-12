@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Proyecto.Views.ComprasView"
+﻿<UserControl x:Class="Proyecto.Views.PedidosView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
@@ -10,31 +10,29 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dgProductos"
+        <DataGrid x:Name="dgPedidos"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
                   SelectionMode="Single"
-                  SelectionChanged="dgProductos_SelectionChanged"
+                  SelectionChanged="dgPedido_SelectionChanged"
                   Margin="0,0,250,0">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" Width="70"/>
-                <DataGridTextColumn Header="Cantidad" Binding="{Binding CantidadProducto}" Width="70"/>
-                <DataGridTextColumn Header="Precio" Binding="{Binding PrecioProducto}" Width="50"/>
+                <DataGridTextColumn Header="Id del pedido" Binding="{Binding IdPedido}" Width="70"/>
+                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="70"/>
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid x:Name="dgCarrito"
+        <DataGrid x:Name="dgProductosPedido"
           AutoGenerateColumns="False"
           IsReadOnly="True"
           SelectionMode="Single"
-          SelectionChanged="dgProductoCarrito_SelectionChanged"
+          SelectionChanged="dgProductoPedido_SelectionChanged"
           Margin="200,0,0,0" HorizontalAlignment="Left" Width="242">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" Width="60"/>
                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="65"/>
-                <DataGridTextColumn Header="Precio" Binding="{Binding PrecioUnidad}" Width="50"/>
                 <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="70"/>
             </DataGrid.Columns>
 

@@ -13,17 +13,21 @@ namespace Proyecto.Services
         public bool SetCarrito(Carrito carrito) { 
             return dbCarrito.SetCarrito(carrito);
         }
-        public List<Carrito> GetCarrito(Carrito carrito)
+        public List<Carrito> GetCarrito(Usuario usuario)
         {
-            return dbCarrito.GetCarrito(carrito);
+            return dbCarrito.GetCarrito(usuario);
         }
         public bool UpdateCarrito(Carrito carrito)
         {
             return dbCarrito.UpdateCarrito(carrito);
         }
-        public bool DeleteCarrito(Carrito carrito)
+        public bool DeleteCarrito(Usuario usuario)
         {
-            return dbCarrito.DeleteCarrito(carrito);
+            return dbCarrito.DeleteCarrito(usuario);
+        }
+        public bool DeleteCarritoProducto(Carrito carrito)
+        {
+            return dbCarrito.DeleteCarritoProducto(carrito);
         }
     }
 }

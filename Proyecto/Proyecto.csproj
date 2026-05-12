@@ -51,6 +51,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PedidosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProductoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,16 +168,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\CarritoController.cs" />
+    <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\ProductoPorPedidoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Models\Conex\DBCarrito.cs" />
     <Compile Include="Models\Conex\DBCategoria.cs" />
+    <Compile Include="Models\Conex\DBEstado.cs" />
     <Compile Include="Models\Conex\DBPedido.cs" />
     <Compile Include="Models\Conex\DBProducto.cs" />
+    <Compile Include="Models\Conex\DBProductoPorPedido.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ProductoPorPedido.cs" />
     <Compile Include="Models\TipoUsuario.cs" />
     <Compile Include="Services\CarritoService.cs" />
     <Compile Include="Services\CategoriaService.cs" />
+    <Compile Include="Services\EstadoService.cs" />
+    <Compile Include="Services\ProductoPorPedidoService.cs" />
     <Compile Include="Services\SesionService.cs" />
     <Compile Include="Services\PedidoService.cs" />
     <Compile Include="Services\ProductoService.cs" />
@@ -190,6 +200,9 @@
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PedidosView.xaml.cs">
+      <DependentUpon>PedidosView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductoView.xaml.cs">
       <DependentUpon>ProductoView.xaml</DependentUpon>

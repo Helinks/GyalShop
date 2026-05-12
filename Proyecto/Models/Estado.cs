@@ -11,5 +11,14 @@ namespace Proyecto.Models
         public int IdEstado { get; set; }
         public string DescEstado { get; set; }
 
+        public Estado(int idEstado, string descEstado)
+        {
+            IdEstado = idEstado;
+            DescEstado = descEstado;
+        }
+
+        public Estado()
+        {
+        }
     }
 }

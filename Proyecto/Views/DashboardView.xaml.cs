@@ -1,5 +1,6 @@
 ﻿using Proyecto.Services;
 using Proyecto.Views;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,7 +11,7 @@ namespace Proyecto.Views
         public DashboardView()
         {
             InitializeComponent();
-            //MainContent.Content = new DashboardHome();
+            
         }
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
@@ -26,6 +27,7 @@ namespace Proyecto.Views
         private void BtnCategorias_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new CategoriaView();
+
         }
 
         private void BtnProducts_Click(object sender, RoutedEventArgs e)
@@ -34,7 +36,15 @@ namespace Proyecto.Views
         }
         private void BtnCompras_Click(object sender, RoutedEventArgs e)
         {
+
             MainContent.Content = new ComprasView();
+       
+        }
+        private void BtnPedidos_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainContent.Content = new PedidosView();
+
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)

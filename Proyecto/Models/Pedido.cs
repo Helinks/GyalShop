@@ -10,14 +10,14 @@ namespace Proyecto.Models
     public class Pedido
     {
         public int IdPedido { get; set; }
-        public Usuario IdUsuarioPedido { get; set; }
-        public Estado idEstadoPedido { get; set; }
+        public int IdUsuarioPedido { get; set; }
+        public int IdEstadoPedido { get; set; }
 
-        public Pedido(int idPedido, Usuario idUsuarioPedido, Estado idEstadoPedido)
+        public Pedido(int idPedido, int idUsuarioPedido, int idEstadoPedido)
         {
             IdPedido = idPedido;
             IdUsuarioPedido = idUsuarioPedido;
-            this.idEstadoPedido = idEstadoPedido;
+            IdEstadoPedido = idEstadoPedido;
         }
 
         public Pedido()

@@ -12,12 +12,13 @@ namespace Proyecto.Models.Conex
 
         public bool SetCarrito(Carrito carrito)
         {
-            string queryInsert = "inser into carrito (idProducto, nombreProducto, precioUnidad, cantidadProducto) values (@idProducto, @nombreProducto, @precioUnidad, @cantidadProducto)";
+            string queryInsert = "insert into carrito (idCliente,idProducto, nombreProducto, precioUnidad, cantidadProducto) values (@idCliente, @idProducto, @nombreProducto, @precioUnidad, @cantidadProducto)";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection))
                 {
+                    command.Parameters.AddWithValue("@idCliente", carrito.IdCliente);
                     command.Parameters.AddWithValue("@idProducto", carrito.IdProducto);
                     command.Parameters.AddWithValue("@nombreProducto", carrito.NombreProducto);
                     command.Parameters.AddWithValue("@precioUnidad", carrito.PrecioUnidad);
@@ -33,7 +34,7 @@ namespace Proyecto.Models.Conex
             }
             return false;
         }
-        public List<Carrito> GetCarrito(Carrito carrito)
+        public List<Carrito> GetCarrito(Usuario usuario)
         {
             List<Carrito> listaCarrito = new List<Carrito>();
             string query = "select * from carrito where idCliente = @idCliente";
@@ -42,21 +43,22 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idCliente", carrito.IdCliente);
+                    command.Parameters.AddWithValue("@idCliente", usuario.IdUsuario);
 
                     mySqlConnection.Open();
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Carrito item = new Carrito
-                            {
-                                IdCarrito = reader.GetInt32("idCarrito"),
-                                IdProducto = reader.GetInt32("idProducto"),
-                                NombreProducto = reader.GetString("nombreProducto"),
-                                PrecioUnidad = reader.GetDouble("precioUnidad"),
-                                Cantidad = reader.GetInt32("cantidadProducto")
-                            };
+                            Carrito item = new Carrito();
+
+                            item.IdCarrito = reader.GetInt32("idCarrito");
+                            item.IdProducto = reader.GetInt32("idProducto");
+                            item.IdCliente = reader.GetInt32("idCliente");
+                            item.NombreProducto = reader.GetString("nombreProducto");
+                            item.PrecioUnidad = reader.GetDouble("precioUnidad");
+                            item.Cantidad = reader.GetInt32("cantidadProducto");
+                            
                             listaCarrito.Add(item);
                         }
                     }
@@ -66,7 +68,7 @@ namespace Proyecto.Models.Conex
         }
         public bool UpdateCarrito(Carrito carrito)
         {
-            string query = "update carrito set cantidadProducto = @cantidadProducto, precioUnidad = @precioUnidad where idCliente = @idCliente";
+            string query = "update carrito set cantidadProducto = @cantidadProducto, precioUnidad = @precioUnidad where idCliente = @idCliente AND idProducto = @idProducto";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
@@ -75,6 +77,7 @@ namespace Proyecto.Models.Conex
                     command.Parameters.AddWithValue("@cantidadProducto", carrito.Cantidad);
                     command.Parameters.AddWithValue("@precioUnidad", carrito.PrecioUnidad);
                     command.Parameters.AddWithValue("@idCliente", carrito.IdCliente);
+                    command.Parameters.AddWithValue("@idProducto", carrito.IdProducto);
 
                     mySqlConnection.Open();
                     int result = command.ExecuteNonQuery();
@@ -86,7 +89,7 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public bool DeleteCarrito(Carrito carrito)
+        public bool DeleteCarrito(Usuario usuario)
         {
             string query = "delete from carrito where idCliente = @idCliente";
 
@@ -94,7 +97,27 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
+                    command.Parameters.AddWithValue("@idCliente", usuario.IdUsuario);
+                    mySqlConnection.Open();
+                    int result = command.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public bool DeleteCarritoProducto(Carrito carrito)
+        {
+            string query = "delete from carrito where idCliente = @idCliente AND idProducto = @idProducto";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                {
                     command.Parameters.AddWithValue("@idCliente", carrito.IdCliente);
+                    command.Parameters.AddWithValue("@idProducto", carrito.IdProducto);
                     mySqlConnection.Open();
                     int result = command.ExecuteNonQuery();
                     if (result > 0)

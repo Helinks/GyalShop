@@ -9,9 +9,9 @@ namespace Proyecto.Models.Conex
 {
     public class DBPedido
     {
-        string stringConex = "server=localhost; user=Backend; database=backend; password=123456; port=3306;";
+        string stringConex = "server=localhost; user=root; database=gyalshop; password=; port=3306;";
 
-        public bool setPedido(Pedido pedido)
+        public bool SetPedido(Pedido pedido)
         {
 
             string queryInsert = "insert into pedidos (idUsuarioPedido, idEstadoPedido) values (@idUsuarioPedido, @idEstadoPedido)";
@@ -20,8 +20,8 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido.IdUsuario);
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
+                    command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido);
+                    command.Parameters.AddWithValue("@idEstadoPedido", 1);
 
                     mySqlConnection.Open();
 
@@ -29,6 +29,7 @@ namespace Proyecto.Models.Conex
 
                     if (result > 0)
                     {
+                        pedido.IdPedido = Convert.ToInt32(command.LastInsertedId);
                         return true;
                     }
                 }
@@ -37,17 +38,18 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public Pedido getPedido(int idPedido)
+        public Pedido GetPedido(Pedido pedido)
         {
 
-            Pedido pedido = new Pedido();
+            Pedido resPedido = new Pedido();
 
-            string query = "select * from pedidos where idPedido = " + idPedido;
+            string query = "select * from pedidos where idPedido = @idPedido";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
+                    command.Parameters.AddWithValue("@idPedido", pedido.IdPedido);
                     mySqlConnection.Open();
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -55,22 +57,18 @@ namespace Proyecto.Models.Conex
 
                         while (reader.Read())
                         {
-                            pedido.IdPedido = reader.GetInt32("idPedido");
-
-                            pedido.IdUsuarioPedido = new Usuario();
-                            pedido.IdUsuarioPedido.IdUsuario = reader.GetInt32("idUsuarioPedido");
-
-                            pedido.idEstadoPedido = new Estado();
-                            pedido.idEstadoPedido.IdEstado= reader.GetInt32("idEstadoPedido");
+                            resPedido.IdPedido = reader.GetInt32("idPedido");
+                            resPedido.IdUsuarioPedido = reader.GetInt32("idUsuarioPedido");
+                            resPedido.IdEstadoPedido= reader.GetInt32("idEstadoPedido");
                         }
                     }
                 }
             }
 
-            return pedido;
+            return resPedido;
         }
 
-        public List<Pedido> getPedidos()
+        public List<Pedido> GetAllPedido()
         {
 
             List<Pedido> pedidos = new List<Pedido>();
@@ -91,12 +89,8 @@ namespace Proyecto.Models.Conex
                             Pedido pedido = new Pedido();
 
                             pedido.IdPedido = reader.GetInt32("idPedido");
-
-                            pedido.IdUsuarioPedido = new Usuario();
-                            pedido.IdUsuarioPedido.IdUsuario = reader.GetInt32("idUsuarioPedido");
-
-                            pedido.idEstadoPedido = new Estado();
-                            pedido.idEstadoPedido.IdEstado = reader.GetInt32("idEstadoPedido");
+                            pedido.IdUsuarioPedido = reader.GetInt32("idUsuarioPedido");
+                            pedido.IdEstadoPedido = reader.GetInt32("idEstadoPedido");
 
                             pedidos.Add(pedido);
                         }
@@ -108,17 +102,17 @@ namespace Proyecto.Models.Conex
             return pedidos;
         }
 
-        public bool updatePedido(Pedido pedido)
+        public bool UpdatePedido(Pedido pedido)
         {
 
-            string query = "update pedidos set idUsuarioPedido = @idUsuarioPedido, idEstadoPedido = @idEstadoPedido where idPedido = @idPedido";
+            string query = "update pedidos Set idUsuarioPedido = @idUsuarioPedido, idEstadoPedido = @idEstadoPedido where idPedido = @idPedido";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido.IdUsuario);
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
+                    command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido);
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido);
                     command.Parameters.AddWithValue("@idPedido", pedido.IdPedido);
 
                     mySqlConnection.Open();
@@ -136,16 +130,16 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public bool cambiarEstadoPedido(Pedido pedido)
+        public bool CambiarEstadoPedido(Pedido pedido)
         {
 
-            string query = "update pedidos set idEstadoPedido = @idEstadoPedido where idPedido = @idPedido";
+            string query = "update pedidos Set idEstadoPedido = @idEstadoPedido where idPedido = @idPedido";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido);
                     command.Parameters.AddWithValue("@idPedido", pedido.IdPedido);
 
                     mySqlConnection.Open();

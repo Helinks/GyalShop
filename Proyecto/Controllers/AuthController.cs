@@ -23,6 +23,9 @@ namespace Proyecto.Controllers
         {
             return SesionService.UsuarioActual != null;
         }
+        public Usuario DataUsuario() {
+            return SesionService.UsuarioActual;
+        }
 
         public bool Register(Usuario usuario)
         {

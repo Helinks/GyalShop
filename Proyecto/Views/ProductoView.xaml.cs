@@ -66,14 +66,13 @@ namespace Proyecto.Views
                 return;
 
             }
-            Categoria categoria = new Categoria((int)CBCategoria.SelectedValue,"",false);
             Producto producto = new Producto
             {
                 NombreProducto = txtNombre.Text,
                 CantidadProducto = int.Parse(txtCantidad.Text),
                 DescuentoProducto = int.Parse(txtDescuento.Text),
                 PrecioProducto = double.Parse(txtPrecio.Text),
-                IdCategoriaProducto =categoria,
+                IdCategoriaProducto = (int)CBCategoria.SelectedValue,
             };
 
             productoController.setProducto(producto);
@@ -92,12 +91,12 @@ namespace Proyecto.Views
             }
             if (selectedProducto == null) return;
 
-            Categoria categoria = new Categoria((int)CBCategoria.SelectedValue, "", false);
+            
             selectedProducto.NombreProducto = txtNombre.Text;
             selectedProducto.CantidadProducto = int.Parse(txtCantidad.Text);
             selectedProducto.DescuentoProducto = int.Parse(txtDescuento.Text);
             selectedProducto.PrecioProducto = int.Parse(txtPrecio.Text);
-            selectedProducto.IdCategoriaProducto = categoria;
+            selectedProducto.IdCategoriaProducto = (int)CBCategoria.SelectedValue;
 
             productoController.updateProducto(selectedProducto);
             CargarDatos();
@@ -142,7 +141,7 @@ namespace Proyecto.Views
                 txtCantidad.Text = selectedProducto.CantidadProducto.ToString();
                 txtDescuento.Text = selectedProducto.DescuentoProducto.ToString();
                 txtPrecio.Text = selectedProducto.PrecioProducto.ToString();
-                CBCategoria.SelectedValue = selectedProducto.IdCategoriaProducto.IdCategoria;
+                CBCategoria.SelectedValue = selectedProducto.IdCategoriaProducto;
                 BtnActualizar.Visibility = Visibility.Visible;
                 BtnEliminar.Visibility = Visibility.Visible;
                 BtnCancelar.Visibility = Visibility.Visible;
