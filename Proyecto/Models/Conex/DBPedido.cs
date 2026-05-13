@@ -156,5 +156,46 @@ namespace Proyecto.Models.Conex
 
             return false;
         }
+
+        public List<Pedido> GetPedidosUsuario(int idUsuario)
+        {
+            List<Pedido> pedidos = new List<Pedido>();
+
+            string query = @"SELECT p.idPedido,
+                            p.idUsuarioPedido,
+                            p.idEstadoPedido
+                     FROM pedidos p
+                     WHERE p.idUsuarioPedido = @idUsuario";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                {
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                    mySqlConnection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Pedido pedido = new Pedido
+                            {
+                                IdPedido = reader.GetInt32("idPedido"),
+                                IdUsuarioPedido = reader.GetInt32("idUsuarioPedido"),
+                                IdEstadoPedido = new Estado
+                                {
+                                    IdEstado = reader.GetInt32("idEstadoPedido")
+                                }
+                            };
+
+                            pedidos.Add(pedido);
+                        }
+                    }
+                }
+            }
+
+            return pedidos;
+        }
     }
 }

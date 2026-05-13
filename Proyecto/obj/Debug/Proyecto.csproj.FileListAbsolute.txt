@@ -90,3 +90,5 @@ C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.g.cs
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.g.cs

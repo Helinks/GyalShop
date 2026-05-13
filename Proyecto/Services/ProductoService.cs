@@ -26,10 +26,7 @@ namespace Proyecto.Services
         }
 
         
-        public List<Producto> getProductos(Producto producto)
-        {
-            return dbProducto.getAllProductos();
-        }
+        
 
         public List<Producto> getAllProductos()
         {

@@ -42,5 +42,12 @@ namespace Proyecto.Views
 
             main.MainContent.Content = new SignUp();
         }
+
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = (MainWindow)Window.GetWindow(this);
+
+            main.MainContent.Content = new HomeView();
+        }
     }
 }

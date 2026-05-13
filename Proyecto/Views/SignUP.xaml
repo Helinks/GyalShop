@@ -13,7 +13,6 @@
             <ColumnDefinition Width="600" />
         </Grid.ColumnDefinitions>
 
-        <!-- ===================== LEFT SIDE (IGUAL LOGIN) ===================== -->
         <Grid Grid.Column="0">
 
             <Image Source="/Assets/Images/banner.png"
@@ -45,21 +44,34 @@
 
         </Grid>
 
-        <!-- ===================== RIGHT SIDE ===================== -->
         <Grid Grid.Column="1"
               Background="White">
+
+            <Button Content="← Volver al inicio"
+                    Width="160"
+                    Height="42"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="30,25,0,0"
+                    Background="Transparent"
+                    Foreground="#7B1330"
+                    FontWeight="Bold"
+                    FontSize="14"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Panel.ZIndex="10"
+                    Click="BtnVolver_Click"/>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto">
 
                 <Border Width="490"
-                        Margin="50"
+                        Margin="50,90,50,50"
                         Padding="30"
                         Background="White"
                         CornerRadius="24" Height="688">
 
                     <StackPanel>
 
-                        <!-- TITLE -->
                         <TextBlock Text="Registro"
                                    FontSize="40"
                                    FontWeight="Bold"
@@ -72,7 +84,6 @@
                                    Margin="0,8,0,30"
                                    HorizontalAlignment="Center"/>
 
-                        <!-- NOMBRE -->
                         <TextBlock Text="Nombre"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -82,7 +93,6 @@
                                  FontSize="15"
                                  Margin="0,0,0,15"/>
 
-                        <!-- CORREO -->
                         <TextBlock Text="Correo electrónico"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -92,7 +102,6 @@
                                  FontSize="15"
                                  Margin="0,0,0,15"/>
 
-                        <!-- PASSWORD -->
                         <TextBlock Text="Contraseña"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -102,7 +111,6 @@
                                      FontSize="15"
                                      Margin="0,0,0,15"/>
 
-                        <!-- TELEFONO -->
                         <TextBlock Text="Teléfono"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -112,7 +120,6 @@
                                  FontSize="15"
                                  Margin="0,0,0,15"/>
 
-                        <!-- DIRECCION -->
                         <TextBlock Text="Dirección"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -122,7 +129,6 @@
                                  FontSize="15"
                                  Margin="0,0,0,25"/>
 
-                        <!-- BOTÓN REGISTRO -->
                         <Button Content="Crear cuenta"
                                 Height="55"
                                 Background="#7B1330"
@@ -133,7 +139,6 @@
                                 Cursor="Hand"
                                 Click="BtnRegister_Click"/>
 
-                        <!-- IR LOGIN -->
                         <Button Content="Ya tengo cuenta"
                                 Margin="0,15,0,0"
                                 Background="Transparent"

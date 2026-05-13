@@ -80,16 +80,6 @@
                             FontSize="15"
                             Click="BtnInicio_Click"/>
 
-                    <Button Content="Productos"
-                            Width="120"
-                            Height="42"
-                            Margin="0,0,8,0"
-                            Background="Transparent"
-                            Foreground="#5A0D24"
-                            FontWeight="SemiBold"
-                            FontSize="15"
-                            Click="BtnProductos_Click"/>
-
                     <Button Content="Carrito"
                             Width="100"
                             Height="42"
@@ -127,14 +117,14 @@
             </Grid>
         </Border>
 
-        <!-- CONTENT -->
+        
         <ScrollViewer Grid.Row="1"
                       VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled">
 
             <StackPanel>
 
-                <!-- HERO -->
+                
                 <Grid Height="560">
                     <Image Source="/Assets/Images/banner.png"
                            Stretch="UniformToFill"/>
@@ -207,7 +197,7 @@
                     </Grid>
                 </Grid>
 
-                <!-- CATEGORY SECTION -->
+               
                 <StackPanel Margin="50,28,50,0">
                     <TextBlock Text="Categorías"
                                FontSize="28"
@@ -239,7 +229,7 @@
                     </ItemsControl>
                 </StackPanel>
 
-                <!-- PRODUCTS -->
+                
                 <StackPanel Margin="50,20,50,0">
                     <TextBlock Text="Productos destacados"
                                FontSize="28"
@@ -314,7 +304,7 @@
                     </ItemsControl>
                 </StackPanel>
 
-                <!-- DESCRIPTION SECTION -->
+                
                 <Border Margin="50,10,50,0"
                         Background="White"
                         CornerRadius="18"
@@ -359,7 +349,7 @@
                     </Grid>
                 </Border>
 
-                <!-- FOOTER -->
+               
                 <Border Margin="0,24,0,0"
                         Background="#5A0D24"
                         Padding="28">
