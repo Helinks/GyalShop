@@ -11,8 +11,6 @@
             <ColumnDefinition Width="620"/>
         </Grid.ColumnDefinitions>
 
-        <!-- LEFT SIDE -->
-
         <Grid>
 
             <Image Source="/Assets/Images/banner.png"
@@ -27,7 +25,11 @@
                 <TextBlock Text="Bienvenida a GyalShop"
                            FontSize="55"
                            FontWeight="Bold"
+<<<<<<< HEAD
                            Foreground="White"
+=======
+                           Foreground="White" 
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                            Width="671"/>
 
                 <TextBlock Text="Accede a productos premium de maquillaje, skincare y belleza desde un solo lugar."
@@ -49,6 +51,20 @@
               Margin="0,0,10,0">
 
             <!-- BOTÓN VOLVER -->
+
+            <Button Content="← Volver al inicio"
+                    Width="160"
+                    Height="42"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="30,30,0,0"
+                    Background="Transparent"
+                    Foreground="#7B1330"
+                    FontWeight="Bold"
+                    FontSize="14"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="BtnVolver_Click"/>
 
             <Button Content="← Volver al inicio"
                     Width="160"

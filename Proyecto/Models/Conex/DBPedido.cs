@@ -13,22 +13,33 @@ namespace Proyecto.Models.Conex
 
         public bool setPedido(Pedido pedido)
         {
-
-            string queryInsert = "insert into pedidos (idUsuarioPedido, idEstadoPedido) values (@idUsuarioPedido, @idEstadoPedido)";
+            string query = @"
+            INSERT INTO pedidos (idUsuarioPedido, idEstadoPedido)
+            VALUES (@idUsuarioPedido, @idEstadoPedido);
+            SELECT LAST_INSERT_ID();";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
-                using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection))
+                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
+<<<<<<< HEAD
                     command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido.IdUsuario);
                     command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
+=======
+                    command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido);
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido);
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 
                     mySqlConnection.Open();
 
-                    int result = command.ExecuteNonQuery();
+                    object result = command.ExecuteScalar();
 
-                    if (result > 0)
+                    if (result != null && result != DBNull.Value)
                     {
+<<<<<<< HEAD
+=======
+                        pedido.IdPedido = Convert.ToInt32(result);
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         return true;
                     }
                 }
@@ -166,11 +177,37 @@ namespace Proyecto.Models.Conex
         {
             List<Pedido> pedidos = new List<Pedido>();
 
+<<<<<<< HEAD
             string query = @"SELECT p.idPedido,
                             p.idUsuarioPedido,
                             p.idEstadoPedido
                      FROM pedidos p
                      WHERE p.idUsuarioPedido = @idUsuario";
+=======
+            string query = @"
+                SELECT 
+                    p.idPedido,
+                    p.idUsuarioPedido,
+                    p.idEstadoPedido,
+
+                    pp.idProductoXPedido,
+                    pp.idPedidoProducto,
+                    pp.idProductoPedido,
+                    pp.precioProducto,
+                    pp.cantidadProducto,
+                    pp.subtotal,
+
+                    pr.nombreProducto
+
+                FROM pedidos p
+                INNER JOIN productoporpedido pp
+                    ON p.idPedido = pp.idPedidoProducto
+                INNER JOIN productos pr
+                    ON pp.idProductoPedido = pr.idProducto
+
+                WHERE p.idUsuarioPedido = @idUsuario
+                ORDER BY p.idPedido";
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
@@ -184,6 +221,7 @@ namespace Proyecto.Models.Conex
                     {
                         while (reader.Read())
                         {
+<<<<<<< HEAD
                             Pedido pedido = new Pedido();
 
                             pedido.IdPedido = reader.GetInt32("idPedido");
@@ -195,6 +233,38 @@ namespace Proyecto.Models.Conex
                             pedido.idEstadoPedido.IdEstado = reader.GetInt32("idEstadoPedido");
 
                             pedidos.Add(pedido);
+=======
+                            int idPedido = reader.GetInt32("idPedido");
+
+                            Pedido pedidoExistente =
+                                pedidos.FirstOrDefault(p => p.IdPedido == idPedido);
+
+                            if (pedidoExistente == null)
+                            {
+                                pedidoExistente = new Pedido
+                                {
+                                    IdPedido = reader.GetInt32("idPedido"),
+                                    IdUsuarioPedido = reader.GetInt32("idUsuarioPedido"),
+                                    IdEstadoPedido = reader.GetInt32("idEstadoPedido"),
+                                    Productos = new List<ProductoPorPedido>()
+                                };
+
+                                pedidos.Add(pedidoExistente);
+                            }
+
+                            ProductoPorPedido producto = new ProductoPorPedido
+                            {
+                                IdProductoXPedido = reader.GetInt32("idProductoXPedido"),
+                                IdPedidoProducto = reader.GetInt32("idPedidoProducto"),
+                                IdProductoPedido = reader.GetInt32("idProductoPedido"),
+                                NombreProducto = reader.GetString("nombreProducto"),
+                                PrecioProducto = reader.GetDouble("precioProducto"),
+                                CantidadProducto = reader.GetInt32("cantidadProducto"),
+                                Subtotal = reader.GetDouble("subtotal")
+                            };
+
+                            pedidoExistente.Productos.Add(producto);
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         }
                     }
                 }

@@ -87,6 +87,42 @@ C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.CoreCompile
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.Up2Date
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.exe
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
+<<<<<<< HEAD
+=======
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.g.cs
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.AssemblyReference.cache
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\CarritoClienteView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\CategoriaView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ComprasView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ConfirmarPedidoView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\Login.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ProductoView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\SignUP.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\DashboardView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\UsuarioView.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\MainWindow.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\CarritoClienteView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\CategoriaView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ComprasView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ConfirmarPedidoView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\HomeView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\Login.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ProductoView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\SignUP.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\DashboardView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\UsuarioView.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\MainWindow.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\App.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto_MarkupCompile.cache
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto_MarkupCompile.lref
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.exe
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\Proyecto.exe.config
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\Proyecto.exe
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\Proyecto.pdb
@@ -146,6 +182,7 @@ C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\ro\Xceed.Wpf.Av
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+<<<<<<< HEAD
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.AssemblyReference.cache
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\CategoriaView.baml
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\ComprasView.baml
@@ -169,13 +206,20 @@ C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\App.g.cs
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto_MarkupCompile.cache
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto_MarkupCompile.lref
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\App.baml
+=======
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\App.baml
+C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\HomeView.baml
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.g.resources
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.Properties.Resources.resources
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.GenerateResource.cache
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.Up2Date
+<<<<<<< HEAD
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.exe
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\GeneratedInternalTypeHelper.g.cs
+=======
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.baml
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.g.cs

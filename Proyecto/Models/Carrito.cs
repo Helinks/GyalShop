@@ -13,8 +13,32 @@ namespace Proyecto.Models
         public int IdCliente { get; set; }
         public string NombreProducto { get; set; }
         public double PrecioUnidad { get; set; }
+<<<<<<< HEAD
         public int Cantidad {  get; set; }
         public double subtotal => PrecioUnidad * Cantidad;
 
+=======
+        public int Cantidad { get; set; }
+
+        public double Subtotal => PrecioUnidad * Cantidad;
+
+        public Carrito(
+            int idCarrito,
+            int idProducto,
+            int idCliente,
+            string nombreProducto,
+            double precioUnidad,
+            int cantidad)
+        {
+            IdCarrito = idCarrito;
+            IdProducto = idProducto;
+            IdCliente = idCliente;
+            NombreProducto = nombreProducto;
+            PrecioUnidad = precioUnidad;
+            Cantidad = cantidad;
+        }
+
+        public Carrito() { }
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
     }
 }

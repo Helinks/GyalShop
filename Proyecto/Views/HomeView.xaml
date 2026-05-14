@@ -8,8 +8,7 @@
              d:DesignHeight="300"
              d:DesignWidth="400"
              Height="766"
-             Width="1414"
-             Loaded="HomeView_Loaded">
+             Width="1414">
 
     <UserControl.Resources>
         <conv:ImgConverter x:Key="ImagePathConverter"/>
@@ -116,7 +115,6 @@
             </Grid>
         </Border>
 
-        <!-- CONTENT -->
         <ScrollViewer Grid.Row="1"
                       VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled">

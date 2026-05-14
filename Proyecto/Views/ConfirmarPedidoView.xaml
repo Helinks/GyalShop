@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Proyecto.Views.ConfirmarPedidoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="20" Background="#F3F4F6">
+        <Border Background="White"
+                CornerRadius="18"
+                Padding="24"
+                BorderBrush="#E8DCE1"
+                BorderThickness="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Margin="0,0,0,18">
+                    <TextBlock Text="Confirmación de pedido"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="#5A0D24"
+                               Margin="0,0,0,8"/>
+
+                    <TextBlock x:Name="txtUsuarioPedido"
+                               Text="Usuario:"
+                               Foreground="#374151"
+                               Margin="0,0,0,4"/>
+
+                    <TextBlock x:Name="txtTotalPedido"
+                               Text="Total:"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Foreground="#7B1330"/>
+                </StackPanel>
+
+                <DataGrid x:Name="dgResumenPedido"
+                          Grid.Row="1"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          Margin="0,0,0,18">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" Width="*"/>
+                        <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="90"/>
+                        <DataGridTextColumn Header="Precio" Binding="{Binding PrecioUnidad, StringFormat=$ {0:N0}}" Width="110"/>
+                        <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal, StringFormat=$ {0:N0}}" Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Volver al carrito"
+                            Width="140"
+                            Height="42"
+                            Margin="0,0,10,0"
+                            Background="White"
+                            BorderBrush="#CFA3B1"
+                            BorderThickness="2"
+                            Foreground="#7B1330"
+                            FontWeight="Bold"
+                            Click="BtnVolverCarrito_Click"/>
+
+                    <Button Content="Hacer pedido"
+                            Width="140"
+                            Height="42"
+                            Background="#7B1330"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Click="BtnHacerPedido_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

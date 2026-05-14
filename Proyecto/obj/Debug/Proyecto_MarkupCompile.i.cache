@@ -10,11 +10,19 @@ none
 false
 DEBUG;TRACE
 C:\Users\Dilan\source\repos\GyalShop\GyalShop\Proyecto\App.xaml
+<<<<<<< HEAD
 10-1011874720
 
 44-1887710165
 41-122967816
 Views\CategoriaView.xaml;Views\ComprasView.xaml;Views\HomeView.xaml;Views\Login.xaml;Views\PerfilView.xaml;Views\ProductoView.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
+=======
+132079788329
+
+54-1628425415
+41-122967816
+Views\CarritoClienteView.xaml;Views\CategoriaView.xaml;Views\ComprasView.xaml;Views\ConfirmarPedidoView.xaml;Views\HomeView.xaml;Views\Login.xaml;Views\PedidosView.xaml;Views\PerfilView.xaml;Views\ProductoView.xaml;Views\SignUP.xaml;Views\DashboardView.xaml;Views\UsuarioView.xaml;MainWindow.xaml;
+>>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 
 True
 

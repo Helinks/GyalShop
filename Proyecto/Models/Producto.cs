@@ -13,6 +13,8 @@ namespace Proyecto.Models
         public string ImagenProducto { get; set; }
         public bool EstaActivo { get; set; }
 
+        public List<ProductoPorPedido> Productos { get; set; }
+
         public Producto(int idProducto, Categoria idCategoriaProducto, string nombreProducto, int cantidadProducto, double precioProducto, int descuentoProducto, bool estaActivo, string imagenProducto = null)
         {
             IdProducto = idProducto;

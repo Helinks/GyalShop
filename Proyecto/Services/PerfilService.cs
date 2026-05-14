@@ -1,33 +1,21 @@
 ﻿using Proyecto.Models;
-<<<<<<< HEAD
 using Proyecto.Models.Conex;
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 using System.Collections.Generic;
 
 namespace Proyecto.Controllers
 {
-    public class PerfilController
+    public class PerfilService
     {
-<<<<<<< HEAD
         DBUsuario dbUsuario = new DBUsuario();
         DBPedido dbPedido = new DBPedido();
 
         public Usuario GetUsuario(int idUsuario)
         {
             return dbUsuario.GetUsuario(idUsuario);
-=======
-        PerfilService perfilService = new PerfilService();
-
-        public Usuario GetUsuario(int idUsuario)
-        {
-            return perfilService.GetUsuario(idUsuario);
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         }
 
         public bool ActualizarDireccion(int idUsuario, string direccion)
         {
-<<<<<<< HEAD
             Usuario usuario = dbUsuario.GetUsuario(idUsuario);
 
             if (usuario == null)
@@ -36,18 +24,11 @@ namespace Proyecto.Controllers
             usuario.Direccion = direccion;
 
             return dbUsuario.UpdateUsuario(usuario, false);
-=======
-            return perfilService.ActualizarDireccion(idUsuario, direccion);
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         }
 
         public List<Pedido> GetPedidosUsuario(int idUsuario)
         {
-<<<<<<< HEAD
             return dbPedido.GetPedidosUsuario(idUsuario);
-=======
-            return perfilService.GetPedidosUsuario(idUsuario);
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         }
     }
 }
