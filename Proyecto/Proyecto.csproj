@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Page Include="Views\CarritoClienteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CategoriaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -42,6 +46,10 @@
     <Page Include="Views\ComprasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConfirmarPedidoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -197,11 +205,17 @@
     <Compile Include="Services\PedidoService.cs" />
     <Compile Include="Services\ProductoService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Views\CarritoClienteView.xaml.cs">
+      <DependentUpon>CarritoClienteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CategoriaView.xaml.cs">
       <DependentUpon>CategoriaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ComprasView.xaml.cs">
       <DependentUpon>ComprasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfirmarPedidoView.xaml.cs">
+      <DependentUpon>ConfirmarPedidoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>

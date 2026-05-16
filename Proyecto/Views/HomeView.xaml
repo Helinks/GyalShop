@@ -91,6 +91,7 @@
                             Click="BtnCarrito_Click"/>
 
                     <Button x:Name="BtnLogin"
+                            Content="Iniciar Sesión"
                             Width="150"
                             Height="48"
                             Background="#7B1330"
@@ -99,10 +100,11 @@
                             FontSize="15"
                             Margin="0,0,10,0"
                             Click="BtnLogin_Click">
-                        Iniciar Sesión
+                        
                     </Button>
 
                     <Button x:Name="BtnPerfi"
+                            Content="Perfil"
                             Width="150"
                             Height="48"
                             Background="#7B1330"
@@ -111,7 +113,7 @@
                             FontSize="15"
                             Visibility="Collapsed"
                             Click="BtnPerfil_Click">
-                        Perfil
+                        
                     </Button>
                 </StackPanel>
             </Grid>
