@@ -4,112 +4,84 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
 
     <Grid Margin="20">
-
         <Grid.ColumnDefinitions>
+            
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
+            
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dgPedidos"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  SelectionMode="Single"
-                  SelectionChanged="dgPedido_SelectionChanged"
-                  Margin="0,0,250,0">
+        <StackPanel Grid.Column="0" Margin="0,0,20,0">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id del pedido" Binding="{Binding IdPedido}" Width="70"/>
-                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="70"/>
-            </DataGrid.Columns>
+            <TextBlock Text="Listado de Pedidos" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <DataGrid x:Name="dgPedidos"
+                      Height="200"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      SelectionChanged="dgPedido_SelectionChanged"
+                      Margin="0,0,0,20">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Pedido" Binding="{Binding IdPedido}" Width="*"/>
+                    <DataGridTextColumn Header="Estado" Binding="{Binding IdEstadoPedido.DescEstado}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
-        </DataGrid>
-        <DataGrid x:Name="dgProductosPedido"
-          AutoGenerateColumns="False"
-          IsReadOnly="True"
-          SelectionMode="Single"
-          SelectionChanged="dgProductoPedido_SelectionChanged"
-          Margin="200,0,0,0" HorizontalAlignment="Left" Width="242">
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" Width="60"/>
-                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="65"/>
-                <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="70"/>
-            </DataGrid.Columns>
-
-        </DataGrid>
-
-
-        <StackPanel Grid.Column="1" Margin="20" Height="329">
-
-            <TextBlock Text="Carrito"
-                       FontSize="24"
-                       FontWeight="Bold"
-                       Margin="0,0,0,20" Width="301"/>
-
-
-            <TextBlock x:Name="nombreProductoLabel" Text="Nombre Producto:" Margin="0,0,0,5" Visibility="Collapsed"/>
-            <TextBlock x:Name="nombreProducto" Text="" Margin="0,0,0,5" Visibility="Collapsed"/>
-            <TextBlock x:Name="cantidadProductoLabel" Text="Cantidad Producto:" Margin="0,0,0,5" Visibility="Collapsed"/>
-            <xctk:IntegerUpDown x:Name="numCantidad" 
-                                Width="50"
-                            Value="0" 
-                            Minimum="0" 
-                            Maximum="100" 
-                            Increment="1" 
-                            HorizontalAlignment="Left" 
-                            Visibility="Collapsed"/>
-            <TextBox x:Name="txtNombre"
-                     Height="35"
-                     Margin="0,0,0,12"
-                     Visibility="Collapsed"/>
-
-
-
-
-
-            <StackPanel Orientation="Horizontal">
-
-                <Button Content="Agregar al Carro"
-                        x:Name="BtnAgregar"
-                        Click="AgregarCarrito"
-                        Width="100"
-                        Margin="0,0,10,0"
-                        Visibility="Collapsed"/>
-                <Button Content="Cancelar"
-                        x:Name="BtnCancelar"
-                        Click="BtnCancelar_Click"
-                        Width="100"
-                        Margin="0,0,10,0"
-                        Visibility="Collapsed"/>
-
-                <Button Content="Actualizar"
-                        x:Name="BtnActualizar"
-                        Click="BtnActualizar_Click"
-                        Width="100"
-                        Margin="0,0,10,0"
-                        Visibility="Collapsed"/>
-
-                <Button Content="Eliminar Producto"
-                        x:Name="BtnEliminar"
-                        Click="BtnEliminar_Click"
-                        Width="100"
-                        Visibility="Collapsed"/>
-                <Button Content="Eliminar Carrito"
-        x:Name="BtnEliminarCarrito"
-        Click="BtnEliminarCarrito_Click"
-        Width="100"
-        Visibility="Visible"
-        />
-                <Button Content="Finalizar compra"
-x:Name="BtnFinalizarCompra"
-Click="BtnFinalizarCompra_Click"
-Width="100"
-Visibility="Visible"
-/>
-
-            </StackPanel>
-
+            <TextBlock Text="Detalles del Pedido" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <DataGrid x:Name="dgProductosPedido"
+                      Height="200"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Producto" Binding="{Binding Producto.NombreProducto}" Width="2*"/>
+                    <DataGridTextColumn Header="Cant." Binding="{Binding CantidadProducto}" Width="*"/>
+                    <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
+
+        
+        <Border Grid.Column="1" Background="#F0F0F0" CornerRadius="10" Padding="15">
+            <StackPanel>
+                <TextBlock Text="Gestión" FontSize="22" FontWeight="Bold" Margin="0,0,0,20" Foreground="#333"/>
+
+                <TextBlock x:Name="cantidadProductoLabel" Text="Nuevo Estado:" Margin="0,0,0,5" Visibility="Collapsed"/>
+                <ComboBox x:Name="cmEstado"
+                          Margin="0,0,0,15"
+                          Height="30"
+                          DisplayMemberPath="DescEstado"
+                          SelectedValuePath="IdEstado"
+                          Visibility="Collapsed"/>
+
+                <TextBox x:Name="txtNombre"
+                         Height="30"
+                         Margin="0,0,0,15"
+                         VerticalContentAlignment="Center"
+                         Visibility="Collapsed"/>
+
+                <UniformGrid Columns="1" VerticalAlignment="Bottom">
+                    <Button Content="Actualizar Estado"
+                            x:Name="BtnEstado"
+                            Click="CambiarEstadoPedido"
+                            Height="35"
+                            Margin="0,0,0,10"
+                            Background="#4CAF50"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Visibility="Collapsed"/>
+
+                    <Button Content="Cancelar"
+                            x:Name="BtnCancelar"
+                            Click="BtnCancelar_Click"
+                            Height="35"
+                            Background="#E91E63"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Visibility="Collapsed"/>
+                </UniformGrid>
+            </StackPanel>
+        </Border>
 
     </Grid>
 </UserControl>

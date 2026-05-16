@@ -11,9 +11,9 @@ namespace Proyecto.Models
     {
         public int IdPedido { get; set; }
         public int IdUsuarioPedido { get; set; }
-        public int IdEstadoPedido { get; set; }
+        public Estado IdEstadoPedido { get; set; }
 
-        public Pedido(int idPedido, int idUsuarioPedido, int idEstadoPedido)
+        public Pedido(int idPedido, int idUsuarioPedido, Estado idEstadoPedido)
         {
             IdPedido = idPedido;
             IdUsuarioPedido = idUsuarioPedido;

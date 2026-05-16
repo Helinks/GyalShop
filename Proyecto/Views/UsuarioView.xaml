@@ -5,12 +5,10 @@
 
     <UserControl.Resources>
 
-        <!-- TEXT -->
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="#1F2937"/>
         </Style>
 
-        <!-- TEXTBOX -->
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="34"/>
             <Setter Property="Padding" Value="10,6"/>
@@ -21,7 +19,6 @@
             <Setter Property="FontSize" Value="13"/>
         </Style>
 
-        <!-- PASSWORD -->
         <Style TargetType="PasswordBox">
             <Setter Property="Height" Value="34"/>
             <Setter Property="Padding" Value="10,6"/>
@@ -32,7 +29,6 @@
             <Setter Property="FontSize" Value="13"/>
         </Style>
 
-        <!-- COMBOBOX -->
         <Style TargetType="ComboBox">
             <Setter Property="Height" Value="34"/>
             <Setter Property="Padding" Value="8,4"/>
@@ -43,7 +39,6 @@
             <Setter Property="FontSize" Value="13"/>
         </Style>
 
-        <!-- BUTTON -->
         <Style TargetType="Button">
             <Setter Property="Height" Value="38"/>
             <Setter Property="Padding" Value="12,6"/>
@@ -67,7 +62,6 @@
             </Setter>
         </Style>
 
-        <!-- BUTTON COLORS -->
         <Style x:Key="PrimaryButtonStyle"
                TargetType="Button"
                BasedOn="{StaticResource {x:Type Button}}">
@@ -86,7 +80,6 @@
             <Setter Property="Background" Value="#B91C1C"/>
         </Style>
 
-        <!-- DATAGRID -->
         <Style TargetType="DataGrid">
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="#E5E7EB"/>
@@ -101,7 +94,6 @@
             <Setter Property="HeadersVisibility" Value="Column"/>
         </Style>
 
-        <!-- DATAGRID HEADER -->
         <Style TargetType="DataGridColumnHeader">
             <Setter Property="Background" Value="#7B1330"/>
             <Setter Property="Foreground" Value="White"/>
@@ -110,7 +102,6 @@
             <Setter Property="BorderThickness" Value="0"/>
         </Style>
 
-        <!-- DATAGRID ROW -->
         <Style TargetType="DataGridRow">
             <Setter Property="Height" Value="58"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -125,7 +116,6 @@
             <ColumnDefinition Width="1.4*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- LISTADO -->
         <Border Background="White"
                 CornerRadius="18"
                 Padding="16"
@@ -163,7 +153,6 @@
                                             Binding="{Binding TipoUsuario.Tipo}"
                                             Width="120"/>
 
-                        <!-- ESTADO -->
                         <DataGridTemplateColumn Header="Estado"
                                                 Width="95">
 
@@ -225,7 +214,6 @@
 
         </Border>
 
-        <!-- FORMULARIO -->
         <Border Grid.Column="1"
                 Background="White"
                 CornerRadius="18"
@@ -248,42 +236,36 @@
                                Foreground="#111827"
                                Margin="0,0,0,12"/>
 
-                    <!-- NOMBRE -->
                     <TextBlock Text="Nombre"
                                Margin="0,0,0,4"
                                FontWeight="SemiBold"/>
 
                     <TextBox x:Name="txtNombre"/>
 
-                    <!-- CORREO -->
                     <TextBlock Text="Correo"
                                Margin="0,0,0,4"
                                FontWeight="SemiBold"/>
 
                     <TextBox x:Name="txtCorreo"/>
 
-                    <!-- PASSWORD -->
                     <TextBlock Text="Contraseña"
                                Margin="0,0,0,4"
                                FontWeight="SemiBold"/>
 
                     <PasswordBox x:Name="txtPassword"/>
 
-                    <!-- TELEFONO -->
                     <TextBlock Text="Teléfono"
                                Margin="0,0,0,4"
                                FontWeight="SemiBold"/>
 
                     <TextBox x:Name="txtTelefono"/>
 
-                    <!-- DIRECCION -->
                     <TextBlock Text="Dirección"
                                Margin="0,0,0,4"
                                FontWeight="SemiBold"/>
 
                     <TextBox x:Name="txtDireccion"/>
 
-                    <!-- TIPO -->
                     <TextBlock Text="Tipo de usuario"
                                Margin="0,0,0,4"
                                FontWeight="SemiBold"/>
@@ -292,14 +274,12 @@
                               DisplayMemberPath="Tipo"
                               SelectedValuePath="IdTipo"/>
 
-                    <!-- CHECK -->
                     <CheckBox x:Name="chkEstado"
                               Content="Usuario activo"
                               IsChecked="True"
                               Margin="0,0,0,14"
                               FontWeight="SemiBold"/>
 
-                    <!-- BOTONES -->
                     <WrapPanel HorizontalAlignment="Left">
 
                         <Button Content="Guardar"

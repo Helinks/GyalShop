@@ -21,7 +21,7 @@
                        string password, string telefono, string direccion, bool estaActivo)
         {
             IdUsuario = idUsuario;
-            TipoUsuario = tipoUsuario ?? new TipoUsuario();
+            TipoUsuario = tipoUsuario;
             NombreUsuario = nombreUsuario;
             Correo = correo;
             Password = password;

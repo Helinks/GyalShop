@@ -18,10 +18,7 @@ namespace Proyecto.Controllers
             return productoService.getProducto(producto);
         }
 
-        public List<Producto> getProductos(Producto producto)
-        {
-            return productoService.getProductos(producto);
-        }
+        
 
         public List<Producto> getAllProductos()
         {

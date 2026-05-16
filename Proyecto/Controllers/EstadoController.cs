@@ -17,9 +17,9 @@ namespace Proyecto.Controllers
         public Estado GetEstado(Estado estado) { 
         return service.GetEstado(estado);
         }
-        public List<Estado> GetAllEstado(Estado estado)
+        public List<Estado> GetAllEstado()
         {
-            return service.GetAllEstado(estado);
+            return service.GetAllEstado();
         }
         public bool UpdateEstado(Estado estado) { 
         return service.UpdateEstado(estado);

@@ -11,7 +11,7 @@
             <ColumnDefinition Width="620"/>
         </Grid.ColumnDefinitions>
 
-        <!-- LEFT SIDE -->
+        
 
         <Grid>
 
@@ -27,7 +27,8 @@
                 <TextBlock Text="Bienvenida a GyalShop"
                            FontSize="55"
                            FontWeight="Bold"
-                           Foreground="White" Width="671"/>
+                           Foreground="White" 
+                           Width="671"/>
 
                 <TextBlock Text="Accede a productos premium de maquillaje, skincare y belleza desde un solo lugar."
                            FontSize="24"
@@ -44,7 +45,22 @@
         <!-- RIGHT SIDE -->
 
         <Grid Grid.Column="1"
-              Background="White" Margin="0,0,10,0">
+              Background="White" 
+              Margin="0,0,10,0">
+
+            <Button Content="← Volver al inicio"
+                    Width="160"
+                    Height="42"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="30,30,0,0"
+                    Background="Transparent"
+                    Foreground="#7B1330"
+                    FontWeight="Bold"
+                    FontSize="14"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="BtnVolver_Click"/>
 
             <Border Width="430"
                     Padding="20"

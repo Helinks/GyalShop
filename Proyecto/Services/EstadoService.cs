@@ -19,8 +19,8 @@ namespace Proyecto.Services
         {
             return dbEstado.GetEstado(estado);
         }
-        public List<Estado> GetAllEstado(Estado estado) { 
-        return dbEstado.GetAllEstado(estado);
+        public List<Estado> GetAllEstado() { 
+        return dbEstado.GetAllEstado();
         }
         public bool UpdateEstado(Estado estado) { 
         return dbEstado.UpdateEstado(estado);

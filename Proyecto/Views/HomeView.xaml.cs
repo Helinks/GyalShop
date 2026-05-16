@@ -70,9 +70,27 @@ namespace Proyecto.Views
 
         private void BtnAgregarCarrito_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.Tag is Producto producto)
+            Button button = sender as Button;
+
+            if (button == null)
+                return;
+
+            Producto producto = button.Tag as Producto;
+
+            if (producto == null)
+                return;
+
+            if (!authController.UsuarioLogueado())
             {
+                MessageBox.Show("Debes iniciar sesión o registrarte para agregar productos al carrito.");
+
+                MainWindow main = (MainWindow)Window.GetWindow(this);
+                main.MainContent.Content = new Login();
+                return;
             }
+
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            mainWindow.MainContent.Content = new CarritoClienteView(producto);
         }
 
         private void BtnComprarAhora_Click(object sender, RoutedEventArgs e)
@@ -119,7 +137,8 @@ namespace Proyecto.Views
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Aquí puedes abrir el perfil del usuario.");
+            MainWindow main = (MainWindow)Window.GetWindow(this);
+            main.MainContent.Content = new PerfilView();
         }
     }
 }

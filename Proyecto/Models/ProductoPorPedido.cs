@@ -10,16 +10,16 @@ namespace Proyecto.Models
     {
         public int IdProductoXPedido { get; set; }
         public int IdPedidoProducto { get; set; }
-        public int IdProductoPedido { get; set; }
+        public Producto Producto { get; set; }
         public double PrecioProducto { get; set; }
         public int CantidadProducto { get; set; }
         public double Subtotal { get; set; }
 
-        public ProductoPorPedido(int idProductoXPedido, int idPedidoProducto, int idProductoPedido, double precioProducto, int cantidadProducto, double subtotal)
+        public ProductoPorPedido(int idProductoXPedido, int idPedidoProducto, Producto producto, double precioProducto, int cantidadProducto, double subtotal)
         {
             IdProductoXPedido = idProductoXPedido;
             IdPedidoProducto = idPedidoProducto;
-            IdProductoPedido = idProductoPedido;
+            Producto = producto;
             PrecioProducto = precioProducto;
             CantidadProducto = cantidadProducto;
             Subtotal = subtotal;

@@ -1,7 +1,6 @@
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.AssemblyReference.cache
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\CategoriaView.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\ComprasView.baml
-C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\HomeView.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\Login.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\ProductoView.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\SignUP.baml
@@ -79,7 +78,6 @@ C:\Users\Helinks\Desktop\GyalShop\Proyecto\bin\Debug\ro\Xceed.Wpf.AvalonDock.res
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\App.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.g.resources
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.Properties.Resources.resources
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.csproj.GenerateResource.cache
@@ -90,3 +88,11 @@ C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Proyecto.pdb
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.baml
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PedidosView.g.cs
 C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\PerfilView.g.cs
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\App.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\HomeView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\CarritoClienteView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\CarritoClienteView.g.cs
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\ConfirmarPedidoView.baml
+C:\Users\Helinks\Desktop\GyalShop\Proyecto\obj\Debug\Views\ConfirmarPedidoView.g.cs
