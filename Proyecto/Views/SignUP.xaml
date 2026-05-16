@@ -13,11 +13,8 @@
             <ColumnDefinition Width="600" />
         </Grid.ColumnDefinitions>
 
-<<<<<<< HEAD
         <!-- ===================== LEFT SIDE ===================== -->
 
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         <Grid Grid.Column="0">
 
             <Image Source="/Assets/Images/banner.png"
@@ -49,7 +46,6 @@
 
         </Grid>
 
-<<<<<<< HEAD
         <!-- ===================== RIGHT SIDE ===================== -->
 
         <Grid Grid.Column="1"
@@ -57,12 +53,6 @@
 
             <!-- BOTÓN VOLVER -->
 
-=======
-       
-        <Grid Grid.Column="1"
-              Background="White">
-
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
             <Button Content="← Volver al inicio"
                     Width="160"
                     Height="42"
@@ -78,11 +68,8 @@
                     Panel.ZIndex="10"
                     Click="BtnVolver_Click"/>
 
-<<<<<<< HEAD
             <!-- SCROLL -->
 
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
             <ScrollViewer VerticalScrollBarVisibility="Auto">
 
                 <Border Width="490"
@@ -95,11 +82,8 @@
 
                     <StackPanel>
 
-<<<<<<< HEAD
                         <!-- TITLE -->
 
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         <TextBlock Text="Registro"
                                    FontSize="40"
                                    FontWeight="Bold"
@@ -112,11 +96,8 @@
                                    Margin="0,8,0,30"
                                    HorizontalAlignment="Center"/>
 
-<<<<<<< HEAD
                         <!-- NOMBRE -->
 
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         <TextBlock Text="Nombre"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -127,11 +108,8 @@
                                  FontSize="15"
                                  Margin="0,0,0,15"/>
 
-<<<<<<< HEAD
                         <!-- CORREO -->
 
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         <TextBlock Text="Correo electrónico"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -141,13 +119,9 @@
                                  Height="45"
                                  FontSize="15"
                                  Margin="0,0,0,15"/>
-<<<<<<< HEAD
 
                         <!-- PASSWORD -->
 
-=======
-                        
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         <TextBlock Text="Contraseña"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"
@@ -157,13 +131,9 @@
                                      Height="45"
                                      FontSize="15"
                                      Margin="0,0,0,15"/>
-<<<<<<< HEAD
 
                         <!-- TELEFONO -->
 
-=======
-                        
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         <TextBlock Text="Teléfono"
                                    FontWeight="SemiBold"
                                    Foreground="#5A0D24"

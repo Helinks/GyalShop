@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
-using Proyecto.Models;
-using System.Windows;
 
 namespace Proyecto.Models.Conex
 {
@@ -12,50 +10,36 @@ namespace Proyecto.Models.Conex
 
         public bool SetProductoPorPedido(Pedido pedido, List<Carrito> carrito)
         {
-            if (pedido == null || pedido.IdPedido <= 0 || carrito == null || carrito.Count == 0)
-                return false;
-
-            string query = @"
-                INSERT INTO productoporpedido
-                (idPedidoProducto, idProductoPedido, precioProducto, cantidadProducto, subtotal)
-                VALUES
-                (@idPedidoProducto, @idProductoPedido, @precioProducto, @cantidadProducto, @subtotal)";
+            string query = "insert into productoporpedido (idPedidoProducto, idProductoPedido, precioProducto, cantidadProducto, subTotal) values (@idPedidoProducto, @idProductoPedido, @precioProducto, @cantidadProducto, @subTotal)";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 mySqlConnection.Open();
-
-                using (MySqlTransaction transaction = mySqlConnection.BeginTransaction())
+                using (MySqlTransaction mySqlTransaction = mySqlConnection.BeginTransaction())
                 {
                     try
                     {
-                        foreach (Carrito item in carrito)
+                        foreach (Carrito c in carrito)
                         {
-                            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection, transaction))
+                            using (MySqlCommand command = new MySqlCommand(query, mySqlConnection, mySqlTransaction))
                             {
+
                                 command.Parameters.AddWithValue("@idPedidoProducto", pedido.IdPedido);
-                                command.Parameters.AddWithValue("@idProductoPedido", item.IdProducto);
-                                command.Parameters.AddWithValue("@precioProducto", item.PrecioUnidad);
-                                command.Parameters.AddWithValue("@cantidadProducto", item.Cantidad);
-                                command.Parameters.AddWithValue("@subtotal", item.Subtotal);
+                                command.Parameters.AddWithValue("@idProductoPedido", c.IdProducto);
+                                command.Parameters.AddWithValue("@precioProducto", c.PrecioUnidad);
+                                command.Parameters.AddWithValue("@cantidadProducto", c.Cantidad);
+                                command.Parameters.AddWithValue("@subTotal", c.Subtotal);
 
-                                int result = command.ExecuteNonQuery();
-
-                                if (result <= 0)
-                                {
-                                    transaction.Rollback();
-                                    return false;
-                                }
+                                command.ExecuteNonQuery();
                             }
                         }
-
-                        transaction.Commit();
+                        mySqlTransaction.Commit();
                         return true;
                     }
                     catch (Exception ex)
                     {
-                        transaction.Rollback();
-                        MessageBox.Show("Error guardando detalle: " + ex.Message);
+                        Console.WriteLine("Error en la transacción: " + ex.Message);
+                        mySqlTransaction.Rollback();
                         return false;
                     }
                 }
@@ -64,28 +48,57 @@ namespace Proyecto.Models.Conex
 
         public List<ProductoPorPedido> GetProductoPorPedido(Pedido pedido)
         {
-            List<ProductoPorPedido> productosXPedidos = new List<ProductoPorPedido>();
+            List<ProductoPorPedido> productosXPedidos =
+                new List<ProductoPorPedido>();
 
-            string query = "SELECT * FROM productoporpedido WHERE idPedidoProducto = @idPedidoProducto";
+            string query = @"
+        SELECT *
+        FROM productoporpedido pp
+        INNER JOIN productos p
+            ON pp.idProductoPedido = p.idProducto
+        WHERE idPedidoProducto = @idPedidoProducto";
 
-            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            using (MySqlConnection mySqlConnection =
+                new MySqlConnection(stringConex))
             {
-                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                using (MySqlCommand command =
+                    new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idPedidoProducto", pedido.IdPedido);
+                    command.Parameters.AddWithValue(
+                        "@idPedidoProducto",
+                        pedido.IdPedido
+                    );
+
                     mySqlConnection.Open();
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using (MySqlDataReader reader =
+                        command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            ProductoPorPedido productoPorPedido1 = new ProductoPorPedido();
-                            productoPorPedido1.IdProductoXPedido = reader.GetInt32("idProductoXPedido");
-                            productoPorPedido1.IdPedidoProducto = reader.GetInt32("idPedidoProducto");
-                            productoPorPedido1.IdProductoPedido = reader.GetInt32("idProductoPedido");
-                            productoPorPedido1.PrecioProducto = reader.GetDouble("precioProducto");
-                            productoPorPedido1.CantidadProducto = reader.GetInt32("cantidadProducto");
-                            productoPorPedido1.Subtotal = reader.GetDouble("subtotal");
+                            ProductoPorPedido productoPorPedido1 =
+                                new ProductoPorPedido();
+
+                            productoPorPedido1.IdProductoXPedido =
+                                reader.GetInt32("idProductoXPedido");
+
+                            productoPorPedido1.IdPedidoProducto =
+                                reader.GetInt32("idPedidoProducto");
+
+                            productoPorPedido1.IdProductoPedido =
+                                reader.GetInt32("idProductoPedido");
+
+                            productoPorPedido1.NombreProducto =
+                                reader.GetString("nombreProducto");
+
+                            productoPorPedido1.PrecioProducto =
+                                reader.GetDouble("precioProducto");
+
+                            productoPorPedido1.CantidadProducto =
+                                reader.GetInt32("cantidadProducto");
+
+                            productoPorPedido1.Subtotal =
+                                reader.GetDouble("subtotal");
 
                             productosXPedidos.Add(productoPorPedido1);
                         }

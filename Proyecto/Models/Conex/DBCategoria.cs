@@ -6,12 +6,7 @@ namespace Proyecto.Models.Conex
 {
     public class DBCategoria
     {
-<<<<<<< HEAD
-        string stringConex = "server=localhost; user=root; database=gyalshop; password=Dilnic2909*; port=3306;";
-=======
-        
         private readonly string stringConex = "server=localhost; user=root; database=gyalshop; password=Dilnic2909*; port=3306;";
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 
         private Categoria LeerCategoria(MySqlDataReader reader)
         {
@@ -95,7 +90,7 @@ namespace Proyecto.Models.Conex
             return resCategorias;
         }
 
-        // SOLO ACTIVAS: para que no se rompa tu ProductoView
+        // SOLO ACTIVAS
         public List<Categoria> GetAllCategoria()
         {
             List<Categoria> listaCategoria = new List<Categoria>();
@@ -124,7 +119,7 @@ namespace Proyecto.Models.Conex
             return listaCategoria;
         }
 
-        // TODAS: para la vista de categorías
+        // TODAS
         public List<Categoria> GetAllCategoriaConEstado()
         {
             List<Categoria> listaCategoria = new List<Categoria>();

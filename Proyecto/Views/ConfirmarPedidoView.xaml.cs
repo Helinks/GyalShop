@@ -39,7 +39,7 @@ namespace Proyecto.Views
 
         private void CargarResumen()
         {
-            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual) ?? new List<Carrito>();
+            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual.IdUsuario) ?? new List<Carrito>();
 
             dgResumenPedido.ItemsSource = carrito;
 
@@ -57,7 +57,7 @@ namespace Proyecto.Views
 
         private void BtnHacerPedido_Click(object sender, RoutedEventArgs e)
         {
-            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual) ?? new List<Carrito>();
+            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual.IdUsuario) ?? new List<Carrito>();
 
             if (carrito.Count == 0)
             {
@@ -65,7 +65,17 @@ namespace Proyecto.Views
                 return;
             }
 
-            Pedido pedido = new Pedido(0, UsuarioActual.IdUsuario, 1);
+            Pedido pedido = new Pedido(
+                    0,
+                    new Usuario
+                    {
+                        IdUsuario = UsuarioActual.IdUsuario
+                    },
+                    new Estado
+                    {
+                        IdEstado = 1
+                    }
+                );
 
             bool pedidoCreado = pedidoController.SetPedido(pedido);
 
@@ -83,7 +93,7 @@ namespace Proyecto.Views
                 return;
             }
 
-            carritoController.DeleteCarrito(UsuarioActual);
+            carritoController.DeleteCarrito(UsuarioActual.IdUsuario);
 
             MessageBox.Show("Pedido realizado con éxito.");
 

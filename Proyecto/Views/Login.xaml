@@ -25,11 +25,7 @@
                 <TextBlock Text="Bienvenida a GyalShop"
                            FontSize="55"
                            FontWeight="Bold"
-<<<<<<< HEAD
                            Foreground="White"
-=======
-                           Foreground="White" 
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                            Width="671"/>
 
                 <TextBlock Text="Accede a productos premium de maquillaje, skincare y belleza desde un solo lugar."

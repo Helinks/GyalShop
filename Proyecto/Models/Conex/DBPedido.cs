@@ -9,9 +9,9 @@ namespace Proyecto.Models.Conex
 {
     public class DBPedido
     {
-        string stringConex = "server=localhost; user=root; database=gyalshop; password=Dilnic2909*; port=3306;";
+        private readonly string stringConex = "server=localhost; user=root; database=gyalshop; password=Dilnic2909*; port=3306;";
 
-        public bool setPedido(Pedido pedido)
+        public bool SetPedido(Pedido pedido)
         {
             string query = @"
             INSERT INTO pedidos (idUsuarioPedido, idEstadoPedido)
@@ -22,13 +22,8 @@ namespace Proyecto.Models.Conex
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-<<<<<<< HEAD
                     command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido.IdUsuario);
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
-=======
-                    command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido);
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido);
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido.IdEstado);
 
                     mySqlConnection.Open();
 
@@ -36,10 +31,7 @@ namespace Proyecto.Models.Conex
 
                     if (result != null && result != DBNull.Value)
                     {
-<<<<<<< HEAD
-=======
                         pedido.IdPedido = Convert.ToInt32(result);
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         return true;
                     }
                 }
@@ -48,9 +40,8 @@ namespace Proyecto.Models.Conex
             return false;
         }
 
-        public Pedido getPedido(int idPedido)
+        public Pedido GetPedido(int idPedido)
         {
-
             Pedido pedido = new Pedido();
 
             string query = "select * from pedidos where idPedido = " + idPedido;
@@ -63,7 +54,6 @@ namespace Proyecto.Models.Conex
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-
                         while (reader.Read())
                         {
                             pedido.IdPedido = reader.GetInt32("idPedido");
@@ -71,8 +61,8 @@ namespace Proyecto.Models.Conex
                             pedido.IdUsuarioPedido = new Usuario();
                             pedido.IdUsuarioPedido.IdUsuario = reader.GetInt32("idUsuarioPedido");
 
-                            pedido.idEstadoPedido = new Estado();
-                            pedido.idEstadoPedido.IdEstado= reader.GetInt32("idEstadoPedido");
+                            pedido.IdEstadoPedido = new Estado();
+                            pedido.IdEstadoPedido.IdEstado = reader.GetInt32("idEstadoPedido");
                         }
                     }
                 }
@@ -81,9 +71,8 @@ namespace Proyecto.Models.Conex
             return pedido;
         }
 
-        public List<Pedido> getPedidos()
+        public List<Pedido> GetPedidos()
         {
-
             List<Pedido> pedidos = new List<Pedido>();
 
             string query = "select * from pedidos";
@@ -96,7 +85,6 @@ namespace Proyecto.Models.Conex
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-
                         while (reader.Read())
                         {
                             Pedido pedido = new Pedido();
@@ -106,22 +94,20 @@ namespace Proyecto.Models.Conex
                             pedido.IdUsuarioPedido = new Usuario();
                             pedido.IdUsuarioPedido.IdUsuario = reader.GetInt32("idUsuarioPedido");
 
-                            pedido.idEstadoPedido = new Estado();
-                            pedido.idEstadoPedido.IdEstado = reader.GetInt32("idEstadoPedido");
+                            pedido.IdEstadoPedido = new Estado();
+                            pedido.IdEstadoPedido.IdEstado = reader.GetInt32("idEstadoPedido");
 
                             pedidos.Add(pedido);
                         }
                     }
-
                 }
             }
 
             return pedidos;
         }
 
-        public bool updatePedido(Pedido pedido)
+        public bool UpdatePedido(Pedido pedido)
         {
-
             string query = "update pedidos set idUsuarioPedido = @idUsuarioPedido, idEstadoPedido = @idEstadoPedido where idPedido = @idPedido";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
@@ -129,7 +115,7 @@ namespace Proyecto.Models.Conex
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
                     command.Parameters.AddWithValue("@idUsuarioPedido", pedido.IdUsuarioPedido.IdUsuario);
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido.IdEstado);
                     command.Parameters.AddWithValue("@idPedido", pedido.IdPedido);
 
                     mySqlConnection.Open();
@@ -140,23 +126,21 @@ namespace Proyecto.Models.Conex
                     {
                         return true;
                     }
-
                 }
             }
 
             return false;
         }
 
-        public bool cambiarEstadoPedido(Pedido pedido)
+        public bool CambiarEstadoPedido(Pedido pedido)
         {
-
             string query = "update pedidos set idEstadoPedido = @idEstadoPedido where idPedido = @idPedido";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
                 using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
                 {
-                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.idEstadoPedido.IdEstado);
+                    command.Parameters.AddWithValue("@idEstadoPedido", pedido.IdEstadoPedido.IdEstado);
                     command.Parameters.AddWithValue("@idPedido", pedido.IdPedido);
 
                     mySqlConnection.Open();
@@ -177,13 +161,6 @@ namespace Proyecto.Models.Conex
         {
             List<Pedido> pedidos = new List<Pedido>();
 
-<<<<<<< HEAD
-            string query = @"SELECT p.idPedido,
-                            p.idUsuarioPedido,
-                            p.idEstadoPedido
-                     FROM pedidos p
-                     WHERE p.idUsuarioPedido = @idUsuario";
-=======
             string query = @"
                 SELECT 
                     p.idPedido,
@@ -207,7 +184,6 @@ namespace Proyecto.Models.Conex
 
                 WHERE p.idUsuarioPedido = @idUsuario
                 ORDER BY p.idPedido";
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
             {
@@ -221,19 +197,6 @@ namespace Proyecto.Models.Conex
                     {
                         while (reader.Read())
                         {
-<<<<<<< HEAD
-                            Pedido pedido = new Pedido();
-
-                            pedido.IdPedido = reader.GetInt32("idPedido");
-
-                            pedido.IdUsuarioPedido = new Usuario();
-                            pedido.IdUsuarioPedido.IdUsuario = reader.GetInt32("idUsuarioPedido");
-
-                            pedido.idEstadoPedido = new Estado();
-                            pedido.idEstadoPedido.IdEstado = reader.GetInt32("idEstadoPedido");
-
-                            pedidos.Add(pedido);
-=======
                             int idPedido = reader.GetInt32("idPedido");
 
                             Pedido pedidoExistente =
@@ -244,8 +207,14 @@ namespace Proyecto.Models.Conex
                                 pedidoExistente = new Pedido
                                 {
                                     IdPedido = reader.GetInt32("idPedido"),
-                                    IdUsuarioPedido = reader.GetInt32("idUsuarioPedido"),
-                                    IdEstadoPedido = reader.GetInt32("idEstadoPedido"),
+                                    IdUsuarioPedido = new Usuario
+                                    {
+                                        IdUsuario = reader.GetInt32("idUsuarioPedido")
+                                    },
+                                    IdEstadoPedido = new Estado
+                                    {
+                                        IdEstado = reader.GetInt32("idEstadoPedido")
+                                    },
                                     Productos = new List<ProductoPorPedido>()
                                 };
 
@@ -264,7 +233,6 @@ namespace Proyecto.Models.Conex
                             };
 
                             pedidoExistente.Productos.Add(producto);
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
                         }
                     }
                 }
@@ -272,7 +240,46 @@ namespace Proyecto.Models.Conex
 
             return pedidos;
         }
+
+        public List<Pedido> GetAllPedido()
+        {
+
+            List<Pedido> pedidos = new List<Pedido>();
+
+            string query = "select * from pedidos p inner join estado e on p.idEstadoPedido = e.idEstado";
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                {
+                    mySqlConnection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            Pedido pedido = new Pedido();
+                            Estado estado = new Estado
+                            {
+                                IdEstado = reader.GetInt32("idEstadoPedido"),
+                                DescEstado = reader.GetString("descEstado")
+                            };
+                            pedido.IdPedido = reader.GetInt32("idPedido");
+                            pedido.IdUsuarioPedido = new Usuario
+                            {
+                                IdUsuario = reader.GetInt32("idUsuarioPedido")
+                            };
+                            pedido.IdEstadoPedido = estado;
+
+                            pedidos.Add(pedido);
+                        }
+                    }
+
+                }
+            }
+
+            return pedidos;
+        }
     }
-
-
 }

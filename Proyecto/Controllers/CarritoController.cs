@@ -1,30 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Proyecto.Services;
+﻿using Proyecto.Services;
 using Proyecto.Models;
+using System.Collections.Generic;
+
 namespace Proyecto.Controllers
 {
     public class CarritoController
     {
         CarritoService carritoService = new CarritoService();
 
-        public bool SetCarrito(Carrito carrito) { 
-        return carritoService.SetCarrito(carrito);
-        }
-        public List<Carrito> GetCarrito(Carrito carrito)
+        public bool SetCarrito(Carrito carrito)
         {
-            return carritoService.GetCarrito(carrito);
+            return carritoService.SetCarrito(carrito);
         }
+
+        public List<Carrito> GetCarrito(int idUsuario)
+        {
+            return carritoService.GetCarrito(idUsuario);
+        }
+
         public bool UpdateCarrito(Carrito carrito)
         {
             return carritoService.UpdateCarrito(carrito);
         }
-        public bool DeleteCarrito(Carrito carrito)
+
+        public bool DeleteCarrito(int idUsuario)
         {
-            return carritoService.DeleteCarrito(carrito);
+            return carritoService.DeleteCarrito(idUsuario);
         }
     }
 }

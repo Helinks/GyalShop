@@ -88,9 +88,6 @@ namespace Proyecto.Views
             }
 
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-<<<<<<< HEAD
-            //mainWindow.MainContent.Content = new CarritoView();
-=======
             mainWindow.MainContent.Content = new CarritoClienteView(producto);
         }
 
@@ -107,7 +104,6 @@ namespace Proyecto.Views
 
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
             mainWindow.MainContent.Content = new ComprasView();
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         }
 
         private void BtnExplorar_Click(object sender, RoutedEventArgs e)
@@ -137,11 +133,7 @@ namespace Proyecto.Views
             }
 
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-<<<<<<< HEAD
-            //mainWindow.MainContent.Content = new CarritoView();
-=======
             mainWindow.MainContent.Content = new ComprasView();
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -153,10 +145,6 @@ namespace Proyecto.Views
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = (MainWindow)Window.GetWindow(this);
-<<<<<<< HEAD
-
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
             main.MainContent.Content = new PerfilView();
         }
     }

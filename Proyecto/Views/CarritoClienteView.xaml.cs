@@ -76,7 +76,10 @@ namespace Proyecto.Views
 
         private void CargarCarrito()
         {
-            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual) ?? new List<Carrito>();
+            List<Carrito> carrito =
+                carritoController.GetCarrito(UsuarioActual.IdUsuario)
+                ?? new List<Carrito>();
+
             dgCarrito.ItemsSource = carrito;
 
             if (carrito.Count == 0)
@@ -131,14 +134,21 @@ namespace Proyecto.Views
             }
 
             Usuario usuario = UsuarioActual;
-            List<Carrito> carritoActual = carritoController.GetCarrito(usuario) ?? new List<Carrito>();
 
-            Carrito itemExistente = carritoActual.FirstOrDefault(x => x.IdProducto == productoSeleccionado.IdProducto);
+            List<Carrito> carritoActual =
+                carritoController.GetCarrito(usuario.IdUsuario)
+                ?? new List<Carrito>();
+
+            Carrito itemExistente =
+                carritoActual.FirstOrDefault(
+                    x => x.IdProducto == productoSeleccionado.IdProducto
+                );
 
             if (itemExistente != null)
             {
                 itemExistente.Cantidad = cantidad;
                 itemExistente.PrecioUnidad = productoSeleccionado.PrecioProducto;
+
                 carritoController.UpdateCarrito(itemExistente);
             }
             else
@@ -156,13 +166,16 @@ namespace Proyecto.Views
             }
 
             MessageBox.Show("Producto agregado al carrito.");
+
             CargarCarrito();
             RecalcularTotalProducto();
         }
 
         private void BtnVaciarCarrito_Click(object sender, RoutedEventArgs e)
         {
-            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual) ?? new List<Carrito>();
+            List<Carrito> carrito =
+                carritoController.GetCarrito(UsuarioActual.IdUsuario)
+                ?? new List<Carrito>();
 
             if (carrito.Count == 0)
             {
@@ -173,18 +186,22 @@ namespace Proyecto.Views
             MessageBoxResult result = MessageBox.Show(
                 "¿Seguro que deseas vaciar todo el carrito?",
                 "Confirmación",
-                MessageBoxButton.YesNo);
+                MessageBoxButton.YesNo
+            );
 
             if (result == MessageBoxResult.Yes)
             {
-                carritoController.DeleteCarrito(UsuarioActual);
+                carritoController.DeleteCarrito(
+                    UsuarioActual.IdUsuario
+                );
+
                 CargarCarrito();
             }
         }
 
         private void BtnHacerPedido_Click(object sender, RoutedEventArgs e)
         {
-            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual) ?? new List<Carrito>();
+            List<Carrito> carrito = carritoController.GetCarrito(UsuarioActual.IdUsuario) ?? new List<Carrito>();
 
             if (carrito.Count == 0)
             {

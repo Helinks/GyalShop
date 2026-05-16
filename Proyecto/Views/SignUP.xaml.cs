@@ -50,10 +50,7 @@ namespace Proyecto.Views
             MainWindow main = (MainWindow)Window.GetWindow(this);
             main.MainContent.Content = new Login();
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = (MainWindow)Window.GetWindow(this);

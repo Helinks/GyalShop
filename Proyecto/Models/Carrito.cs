@@ -9,15 +9,15 @@ namespace Proyecto.Models
     public class Carrito
     {
         public int IdCarrito { get; set; }
-        public int IdProducto { get; set; }
-        public int IdCliente { get; set; }
-        public string NombreProducto { get; set; }
-        public double PrecioUnidad { get; set; }
-<<<<<<< HEAD
-        public int Cantidad {  get; set; }
-        public double subtotal => PrecioUnidad * Cantidad;
 
-=======
+        public int IdProducto { get; set; }
+
+        public int IdCliente { get; set; }
+
+        public string NombreProducto { get; set; }
+
+        public double PrecioUnidad { get; set; }
+
         public int Cantidad { get; set; }
 
         public double Subtotal => PrecioUnidad * Cantidad;
@@ -39,6 +39,5 @@ namespace Proyecto.Models
         }
 
         public Carrito() { }
->>>>>>> 5a903cf (Perfil y HomeView echos con el carrito)
     }
 }
